@@ -272,7 +272,7 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   // 从 GitHub raw 读取最新 update.json，保持与 App 内"检测更新"一致；失败则用页面内置版本
-  var RAW = 'https://raw.githubusercontent.com/daiyuxiang520/geren-update/main/update.json';
+  var RAW = '/update.json';   // 同源路径，经 CF Worker 分流：国内走 RainCloud、海外走 jsDelivr，规避 raw.githubusercontent 被墙
   fetch(RAW + '?t=' + Date.now(), {cache:'no-store'})
     .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
     .then(function(d){
