@@ -2,17 +2,52 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <title>五菱车控 · 车辆远程助手</title>
-<meta name="description" content="五菱车控 —— 车辆状态查看、远程控制、充电管理、能耗统计、位置找车、无感控车，一款为爱车打造的第三方安卓客户端。完全开源，免费使用。">
+<meta name="description" content="五菱车控 —— 车辆状态查看、远程控制、充电管理、能耗统计、位置找车、无感控车，一款为爱车打造的第三方安卓客户端。完全开源，免费使用，无广告。">
+<meta name="keywords" content="五菱,五菱车控,远程控制,充电管理,能耗统计,位置找车,无感控车,安卓,开源,APK">
 <meta name="theme-color" content="#0b7285">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
-<meta property="og:title" content="五菱车控 · 车辆远程助手">
-<meta property="og:description" content="车辆状态、远程控制、充电管理、能耗统计、位置找车，一款为爱车打造的第三方安卓客户端。">
-<meta property="og:image" content="icon.png">
+<link rel="canonical" href="https://wulingchekong.ccwu.cc/">
+<link rel="preconnect" href="https://cn-nb2.rains3.com" crossorigin>
+
+<!-- Open Graph -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="五菱车控">
+<meta property="og:title" content="五菱车控 · 车辆远程助手">
+<meta property="og:description" content="车辆状态、远程控制、充电管理、能耗统计、位置找车、无感控车。完全开源、免费无广告的第三方安卓客户端。">
+<meta property="og:image" content="https://wulingchekong.ccwu.cc/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://wulingchekong.ccwu.cc/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="五菱车控 · 车辆远程助手">
+<meta name="twitter:description" content="车辆状态、远程控制、充电管理、能耗统计、位置找车。完全开源、免费无广告的第三方安卓客户端。">
+<meta name="twitter:image" content="https://wulingchekong.ccwu.cc/og-image.png">
+
+<script>document.documentElement.className += ' js';</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "五菱车控",
+  "alternateName": "Wuling Remote",
+  "operatingSystem": "Android",
+  "applicationCategory": "UtilitiesApplication",
+  "softwareVersion": "4.3.0",
+  "downloadUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v119.apk",
+  "installUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v119.apk",
+  "url": "https://wulingchekong.ccwu.cc/",
+  "description": "车辆状态查看、远程控制、充电管理、能耗统计、位置找车、无感控车，一款为爱车打造的第三方安卓客户端。完全开源，免费使用，无广告。",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+}
+</script>
+
 <style>
   /* ===== 默认主题（清新简约）===== */
   :root{
@@ -29,6 +64,8 @@
     --dl-sec-bg:#f4f8f9; --dl-line:#e9eef3;
     --log-bg:#0f2230; --log-ink:#a9c2d4; --log-border:transparent; --log-shadow:none;
     --pill-bg:#eafaf3; --pill-ink:#12b886;
+    --step-bg:#ffffff; --step-line:#e9eef3; --step-num:#eafaf3; --step-num-ink:#0b7285;
+    --faq-bg:#ffffff; --faq-border:#e9eef3;
     --footer-bg:#0e1a24; --footer-ink:#8ea3b3; --footer-top:#1b2c3a; --footer-fine-line:#1b2c3a; --footer-fine:#6c8092; --footer-fine-b:#9ab0c6; --footer-link-hover:#ffffff;
     --theme-color:#0b7285;
   }
@@ -49,6 +86,8 @@
     --dl-sec-bg:#0d1424; --dl-line:rgba(255,255,255,.10);
     --log-bg:#070d18; --log-ink:#9fb3c8; --log-border:rgba(255,255,255,.10); --log-shadow:inset 0 0 40px rgba(34,211,238,.06);
     --pill-bg:rgba(52,211,153,.14); --pill-ink:#34d399;
+    --step-bg:linear-gradient(180deg,#0d1424,#111a2e); --step-line:rgba(255,255,255,.10); --step-num:rgba(34,211,238,.12); --step-num-ink:#22d3ee;
+    --faq-bg:linear-gradient(180deg,#0d1424,#111a2e); --faq-border:rgba(255,255,255,.10);
     --footer-bg:#04060d; --footer-ink:#7c8aa6; --footer-top:rgba(255,255,255,.10); --footer-fine-line:rgba(255,255,255,.10); --footer-fine:#5d6b85; --footer-fine-b:#9ab0c6; --footer-link-hover:var(--brand);
     --theme-color:#060912;
   }
@@ -68,6 +107,8 @@
     --dl-sec-bg:transparent; --dl-line:transparent;
     --log-bg:rgba(27,20,48,.92); --log-ink:#c3bce0; --log-border:transparent; --log-shadow:none;
     --pill-bg:rgba(34,197,94,.20); --pill-ink:#7af0a8;
+    --step-bg:rgba(255,255,255,.55); --step-line:rgba(255,255,255,.70); --step-num:rgba(124,58,237,.14); --step-num-ink:#7c3aed;
+    --faq-bg:rgba(255,255,255,.55); --faq-border:rgba(255,255,255,.70);
     --footer-bg:transparent; --footer-ink:#4a4368; --footer-top:transparent; --footer-fine-line:rgba(255,255,255,.70); --footer-fine:#6b6390; --footer-fine-b:#4a4368; --footer-link-hover:var(--brand);
     --theme-color:#7c3aed;
   }
@@ -90,6 +131,15 @@
   }
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  img{max-width:100%}
+
+  /* ---------- 滚动渐显 ---------- */
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    .js .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
 
   /* ---------- 主题切换器 ---------- */
   .theme-switch{display:inline-flex;gap:3px;padding:3px;border-radius:999px;
@@ -104,12 +154,12 @@
     background:var(--nav-bg);border-bottom:1px solid var(--card-border)}
   .nav{display:flex;align-items:center;gap:12px;height:60px}
   .nav img{width:32px;height:32px;border-radius:9px;box-shadow:var(--icon-shadow)}
-  .nav b{font-size:16.5px;letter-spacing:.2px}
+  .nav b{font-size:16.5px;letter-spacing:.2px;white-space:nowrap}
   .nav .sp{flex:1}
-  .nav a.link{font-size:14px;color:var(--muted);margin-right:6px}
+  .nav a.link{font-size:14px;color:var(--muted);margin-right:6px;transition:.2s}
   .nav a.link:hover{color:var(--nav-link-hover)}
   .nav .btn-sm{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:var(--btn-primary-ink);
-    padding:8px 16px;border-radius:10px;font-size:14px;font-weight:600;transition:.2s}
+    padding:8px 16px;border-radius:10px;font-size:14px;font-weight:600;transition:.2s;white-space:nowrap}
   .nav .btn-sm:hover{transform:translateY(-1px)}
 
   /* ---------- Hero ---------- */
@@ -118,44 +168,108 @@
     background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
     background-size:44px 44px;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%);
     -webkit-mask-image:radial-gradient(circle at 50% 30%,#000,transparent 75%);opacity:var(--hero-grid,0)}
-  .hero .wrap{position:relative;z-index:2;display:flex;align-items:center;gap:40px;flex-wrap:wrap}
-  .hero .txt{flex:1;min-width:280px}
-  .app-icon{width:110px;height:110px;border-radius:26px;flex:0 0 auto;box-shadow:var(--icon-shadow);background:#fff}
-  .hero h1{font-size:clamp(38px,7vw,52px);line-height:1.15;letter-spacing:.5px;margin-bottom:12px;font-weight:800;
-    background:linear-gradient(120deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p.sub{font-size:16.5px;color:var(--muted);max-width:520px;margin-bottom:22px}
+  .hero .wrap{position:relative;z-index:2;display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+  .hero .txt{flex:1 1 420px;min-width:280px}
   .ver-badge{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--badge-ink);
     background:var(--badge-bg);border:1px solid var(--badge-border);padding:6px 13px;border-radius:999px;margin-bottom:20px;font-weight:600}
   .ver-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--badge-dot);box-shadow:0 0 8px var(--badge-dot)}
-  .actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero h1{font-size:clamp(38px,7vw,54px);line-height:1.12;letter-spacing:.5px;margin-bottom:12px;font-weight:800;
+    background:linear-gradient(120deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.sub{font-size:16.5px;color:var(--muted);max-width:520px;margin-bottom:24px}
+  .actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px}
   .btn{display:inline-flex;align-items:center;gap:9px;font-weight:650;font-size:16px;padding:14px 30px;border-radius:13px;transition:.22s}
   .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:var(--btn-primary-ink);box-shadow:0 10px 26px rgba(0,0,0,.18)}
   .btn-primary:hover{transform:translateY(-2px)}
   .btn-ghost{background:var(--btn-ghost-bg);color:var(--btn-ghost-ink);border:1px solid var(--btn-ghost-border)}
   .btn-ghost:hover{border-color:var(--brand)}
   .btn small{font-weight:400;font-size:12.5px;opacity:.72;display:block;line-height:1.2}
+  .hero-facts{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+  .hero-facts span{display:inline-flex;align-items:center;gap:7px}
+  .hero-facts b{color:var(--ink);font-weight:650}
+  .hero-visual{flex:0 0 auto;display:flex;justify-content:center;position:relative}
+  .hero-visual::after{content:"";position:absolute;inset:-30px;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(18,184,134,.22),transparent);z-index:-1;filter:blur(6px)}
 
   /* ---------- 通用区块 ---------- */
-  section{padding:60px 0}
-  .sec-title{text-align:center;margin-bottom:40px}
+  section{padding:62px 0}
+  .sec-title{text-align:center;margin-bottom:42px}
   .sec-title h2{font-size:27px;letter-spacing:.4px;margin-bottom:9px}
   .sec-title p{color:var(--muted);font-size:15px}
+  .sec-title .kicker{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:1px;color:var(--brand);
+    text-transform:uppercase;margin-bottom:10px}
 
   /* ---------- 功能卡片 ---------- */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:16px}
   .card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);
-    padding:22px 20px;transition:.22s;backdrop-filter:var(--card-blur)}
-  .card:hover{transform:translateY(-3px);box-shadow:var(--card-shadow);border-color:var(--brand)}
-  .card .ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:21px;margin-bottom:13px;background:var(--ico-bg)}
+    padding:22px 20px;transition:.25s;backdrop-filter:var(--card-blur)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--card-shadow);border-color:var(--brand)}
+  .card .ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:21px;margin-bottom:13px;
+    background:var(--ico-bg);transition:.25s}
+  .card:hover .ico{transform:scale(1.12) rotate(-5deg)}
   .card h3{font-size:16px;margin-bottom:7px}
   .card p{font-size:13.6px;color:var(--muted);line-height:1.6}
+
+  /* ---------- 手机预览 mockup ---------- */
+  .phones{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;align-items:flex-start}
+  .phone-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .phone{--ph-bg:#f4f8fa;--ph-card:#fff;--ph-ink:#1b2733;--ph-muted:#7c8a97;--ph-brand:#0b7285;--ph-line:#e7eef2;
+    width:246px;height:500px;border-radius:38px;background:#0d1721;border:10px solid #0d1721;
+    position:relative;overflow:hidden;flex:0 0 auto;box-shadow:0 30px 64px rgba(9,42,58,.30)}
+  .phone::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:112px;height:22px;
+    background:#0d1721;border-radius:0 0 15px 15px;z-index:5}
+  .phone-wrap:hover .phone{transform:translateY(-6px);transition:transform .3s}
+  .screen{position:absolute;inset:0;background:var(--ph-bg);padding:32px 15px 15px;display:flex;flex-direction:column;gap:11px;overflow:hidden}
+  .ph-top{display:flex;align-items:center;justify-content:space-between;font-size:13.5px;font-weight:700;color:var(--ph-ink)}
+  .ph-top .live{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;color:#12b886}
+  .ph-top .live::before{content:"";width:6px;height:6px;border-radius:50%;background:#12b886;box-shadow:0 0 6px #12b886}
+  .ph-hero{background:var(--ph-card);border-radius:16px;padding:14px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 14px rgba(20,50,70,.06)}
+  .ring{width:92px;height:92px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;position:relative;
+    background:conic-gradient(#12b886 0 78%,#e3edf1 78% 100%)}
+  .ring::before{content:"";position:absolute;inset:9px;border-radius:50%;background:var(--ph-card)}
+  .ring b{position:relative;font-size:21px;color:var(--ph-brand);line-height:1}
+  .ring b i{font-size:11px;font-style:normal;display:block;color:var(--ph-muted);font-weight:500;margin-top:2px}
+  .ph-hero .meta{min-width:0}
+  .ph-hero .meta .k{font-size:11px;color:var(--ph-muted)}
+  .ph-hero .meta .v{font-size:22px;font-weight:800;color:var(--ph-ink);line-height:1.25}
+  .ph-hero .meta .v small{font-size:12px;font-weight:500;color:var(--ph-muted)}
+  .ph-list{background:var(--ph-card);border-radius:16px;padding:6px 14px;box-shadow:0 4px 14px rgba(20,50,70,.06)}
+  .ph-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--ph-line);font-size:13px;color:var(--ph-ink)}
+  .ph-row:last-child{border-bottom:none}
+  .ph-row .l{display:flex;align-items:center;gap:9px;color:var(--ph-muted)}
+  .ph-row .r{font-weight:650}
+  .ph-row .r.ok{color:#12b886}
+  .ph-row .em{font-size:15px}
+  /* 远程控制网格 */
+  .ph-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ph-key{background:var(--ph-card);border-radius:15px;padding:16px 8px;display:flex;flex-direction:column;align-items:center;gap:7px;
+    box-shadow:0 4px 14px rgba(20,50,70,.06)}
+  .ph-key .em{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#e8f1fd;font-size:17px}
+  .ph-key span{font-size:12.5px;color:var(--ph-ink);font-weight:600}
+  /* 能耗柱状 */
+  .ph-bars{background:var(--ph-card);border-radius:16px;padding:16px 14px 12px;box-shadow:0 4px 14px rgba(20,50,70,.06)}
+  .ph-bars .bars{display:flex;align-items:flex-end;gap:7px;height:96px;margin-bottom:12px}
+  .ph-bars .bars i{flex:1;border-radius:5px 5px 3px 3px;background:linear-gradient(180deg,#15a3b5,#12b886);opacity:.85}
+  .ph-bars .axis{display:flex;justify-content:space-between;font-size:10px;color:var(--ph-muted)}
+  .ph-kv{display:flex;gap:10px}
+  .ph-kv .b{flex:1;background:var(--ph-card);border-radius:14px;padding:12px;box-shadow:0 4px 14px rgba(20,50,70,.06)}
+  .ph-kv .b .k{font-size:10.5px;color:var(--ph-muted)}
+  .ph-kv .b .v{font-size:17px;font-weight:800;color:var(--ph-ink);line-height:1.3}
+  .ph-kv .b .v small{font-size:11px;font-weight:500;color:var(--ph-muted)}
+  /* 充电 */
+  .ph-charge{background:var(--ph-card);border-radius:16px;padding:16px;box-shadow:0 4px 14px rgba(20,50,70,.06)}
+  .ph-charge .big{font-size:30px;font-weight:800;color:#e8590c;line-height:1.1}
+  .ph-charge .big small{font-size:13px;font-weight:600}
+  .ph-charge .cap{font-size:11px;color:var(--ph-muted);margin-bottom:12px}
+  .ph-bar{height:9px;border-radius:6px;background:#e3edf1;overflow:hidden}
+  .ph-bar i{display:block;height:100%;width:78%;border-radius:6px;background:linear-gradient(90deg,#15a3b5,#12b886)}
+  .phone-cap{font-size:13px;color:var(--muted);font-weight:600}
 
   /* ---------- 下载 ---------- */
   .dl-sec{background:var(--dl-sec-bg);border-top:1px solid var(--dl-line);border-bottom:1px solid var(--dl-line)}
   .dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
   .dl-card{border:1px solid var(--card-border);border-radius:var(--radius);padding:22px 20px;
     display:flex;flex-direction:column;gap:6px;transition:.22s;background:var(--card-bg);backdrop-filter:var(--card-blur)}
-  .dl-card:hover{border-color:var(--brand);box-shadow:var(--card-shadow)}
+  .dl-card:hover{border-color:var(--brand);box-shadow:var(--card-shadow);transform:translateY(-3px)}
   .dl-card .tag{font-size:12px;font-weight:700;color:var(--brand);letter-spacing:.6px}
   .dl-card .tag.alt{color:var(--muted)}
   .dl-card h3{font-size:16.5px}
@@ -163,11 +277,33 @@
   .dl-card .go{font-size:14px;font-weight:650;color:var(--brand);display:inline-flex;gap:6px;align-items:center}
   .dl-card .go::after{content:"→";transition:.2s}
   .dl-card:hover .go::after{transform:translateX(4px)}
+  .dl-meta{text-align:center;margin-top:18px;font-size:12.6px;color:var(--muted)}
+  .dl-meta code{background:var(--card-bg);border:1px solid var(--card-border);padding:2px 7px;border-radius:6px;font-size:12px}
+
+  /* ---------- 安装指引 ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .step{background:var(--step-bg);border:1px solid var(--step-line);border-radius:var(--radius);padding:20px;backdrop-filter:var(--card-blur)}
+  .step .n{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;
+    background:var(--step-num);color:var(--step-num-ink);margin-bottom:12px}
+  .step h3{font-size:15.5px;margin-bottom:6px}
+  .step p{font-size:13.3px;color:var(--muted);line-height:1.6}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq details{background:var(--faq-bg);border:1px solid var(--faq-border);border-radius:var(--radius);overflow:hidden;backdrop-filter:var(--card-blur);transition:.22s}
+  .faq details[open]{border-color:var(--brand)}
+  .faq summary{list-style:none;cursor:pointer;padding:17px 20px;font-size:15px;font-weight:650;color:var(--ink);
+    display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:20px;font-weight:400;color:var(--brand);transition:.25s;flex:0 0 auto}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .a{padding:0 20px 18px;font-size:13.8px;color:var(--muted);line-height:1.75}
+  .faq .a a{color:var(--brand);text-decoration:underline;text-underline-offset:2px}
 
   /* ---------- 更新日志 ---------- */
   .log{background:var(--log-bg);color:var(--log-ink);border:1px solid var(--log-border);box-shadow:var(--log-shadow);
     border-radius:var(--radius);padding:26px 24px;font-size:14px;line-height:1.75}
-  .log h3{color:#fff;font-size:17px;margin-bottom:14px;display:flex;align-items:center;gap:9px}
+  .log h3{color:#fff;font-size:17px;margin-bottom:14px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
   .log h3 .pill{font-size:11.5px;background:var(--pill-bg);color:var(--pill-ink);border:1px solid currentColor;padding:2px 9px;border-radius:999px;font-weight:600}
   .log pre{white-space:pre-wrap;word-break:break-word;font-family:inherit;font-size:13.4px}
 
@@ -183,6 +319,24 @@
   footer .col a:hover{color:var(--footer-link-hover)}
   footer .fine{border-top:1px solid var(--footer-fine-line);padding-top:20px;font-size:12.3px;line-height:1.8;color:var(--footer-fine)}
   footer .fine b{color:var(--footer-fine-b)}
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:860px){
+    .hero{padding:44px 0 52px}
+    .hero .wrap{gap:34px}
+    .hero-visual{width:100%}
+    .hero-facts{gap:14px}
+  }
+  @media (max-width:768px){
+    .nav a.link{display:none}
+    section{padding:48px 0}
+    .sec-title{margin-bottom:30px}
+  }
+  @media (max-width:420px){
+    .phone{width:220px;height:452px}
+    .ring{width:80px;height:80px}
+    .actions .btn{flex:1 1 auto;justify-content:center}
+  }
 </style>
 </head>
 <body>
@@ -198,7 +352,9 @@
       <button type="button" data-t="glass" title="玻璃拟态" aria-label="玻璃拟态">🔮</button>
     </div>
     <a class="link" href="#features">功能</a>
+    <a class="link" href="#preview">界面</a>
     <a class="link" href="#download">下载</a>
+    <a class="link" href="#guide">安装</a>
     <a class="link" href="#changelog">更新</a>
     <a class="btn-sm" href="#download">立即下载</a>
   </div>
@@ -207,16 +363,41 @@
 <!-- HERO -->
 <div class="hero">
   <div class="wrap">
-    <img class="app-icon" src="icon.png" alt="五菱车控 App 图标">
     <div class="txt">
-      <div class="ver-badge"><span class="dot"></span><span id="verText">最新版本 v99 · 3.88.1</span></div>
+      <div class="ver-badge"><span class="dot"></span><span id="verText">最新版本 v119 · 4.3.0</span></div>
       <h1>五菱车控</h1>
       <p class="sub">车辆状态、远程控制、充电管理、能耗统计、位置找车、无感控车 —— 一款为爱车打造的第三方安卓客户端。完全开源，免费使用，无广告。</p>
       <div class="actions">
-        <a class="btn btn-primary" id="mainDl" href="https://cn-nb2.rains3.com/dump/wuling-assistant.apk">
-          ⬇ 立即下载<small id="dlSize">APK · 安卓</small>
+        <a class="btn btn-primary" id="mainDl" href="https://cn-nb2.rains3.com/dump/wuling-assistant-v119.apk">
+          ⬇ 立即下载<small id="dlSize">APK · 安卓 · 12.2 MB</small>
         </a>
         <a class="btn btn-ghost" href="#features">了解功能</a>
+      </div>
+      <div class="hero-facts">
+        <span>🔓 <b>完全开源</b></span>
+        <span>🆓 <b>免费无广告</b></span>
+        <span>📱 <b>Android 8.0+</b></span>
+        <span>🔒 <b>数据本机存储</b></span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="phone">
+        <div class="screen">
+          <div class="ph-top"><span>车辆状态</span><span class="live">已连接</span></div>
+          <div class="ph-hero">
+            <div class="ring"><b>78%<i>电量</i></b></div>
+            <div class="meta">
+              <div class="k">剩余续航</div>
+              <div class="v">412<small> km</small></div>
+            </div>
+          </div>
+          <div class="ph-list">
+            <div class="ph-row"><span class="l"><span class="em">🔒</span>车门</span><span class="r ok">已锁</span></div>
+            <div class="ph-row"><span class="l"><span class="em">🪟</span>车窗</span><span class="r ok">已关</span></div>
+            <div class="ph-row"><span class="l"><span class="em">🛞</span>胎压</span><span class="r ok">正常</span></div>
+            <div class="ph-row"><span class="l"><span class="em">🔋</span>低压电池</span><span class="r ok">良好</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -225,50 +406,157 @@
 <!-- 功能 -->
 <section id="features">
   <div class="wrap">
-    <div class="sec-title">
+    <div class="sec-title reveal">
+      <span class="kicker">Features</span>
       <h2>一部手机，掌控全车</h2>
       <p>覆盖日常用车的高频场景</p>
     </div>
     <div class="grid">
-      <div class="card"><div class="ico">🚗</div><h3>车辆状态总览</h3><p>车门、车窗、尾门、车灯、胎压、转向灯实时状态，电量／油量、剩余续航、低压电池、发动机温度一眼看清。</p></div>
-      <div class="card"><div class="ico">🔐</div><h3>远程控制</h3><p>远程上锁解锁、一键关窗开窗、开尾箱、上电下电、寻车鸣笛，忘关车窗不用再跑下楼。</p></div>
-      <div class="card"><div class="ico">🔋</div><h3>充电管理</h3><p>充电状态与实时充电功率、充电指示灯，支持预约充电，错峰充电更省钱。</p></div>
-      <div class="card"><div class="ico">📊</div><h3>能耗统计</h3><p>总里程、昨日里程、平均能耗、平均车速，配合趋势图表看懂每一段行程。</p></div>
-      <div class="card"><div class="ico">📍</div><h3>位置找车</h3><p>车辆定位、地址解析与天气信息，一键唤起导航找车，商场停车场不再迷路。</p></div>
-      <div class="card"><div class="ico">📶</div><h3>无感控车</h3><p>蓝牙免开关连接，靠近自动连接、携带手机即可解锁，支持摇晃解锁等便捷方式。</p></div>
-      <div class="card"><div class="ico">🛡️</div><h3>哨兵模式</h3><p>车辆安防状态提醒，异常情况及时知晓，停车更安心。</p></div>
-      <div class="card"><div class="ico">🧰</div><h3>诊断与日志</h3><p>整机状态、智能驾驶与日志诊断中心，问题可自助排查，异常可一键导出反馈。</p></div>
-      <div class="card"><div class="ico">🔄</div><h3>在线更新</h3><p>三渠道更新通道，新版本应用内直接检测下载，可自由切换正式／测试通道。</p></div>
+      <div class="card reveal"><div class="ico">🚗</div><h3>车辆状态总览</h3><p>车门、车窗、尾门、车灯、胎压、转向灯实时状态，电量／油量、剩余续航、低压电池、发动机温度一眼看清。</p></div>
+      <div class="card reveal"><div class="ico">🔐</div><h3>远程控制</h3><p>远程上锁解锁、一键关窗开窗、开尾箱、上电下电、寻车鸣笛，忘关车窗不用再跑下楼。</p></div>
+      <div class="card reveal"><div class="ico">🔋</div><h3>充电管理</h3><p>充电状态与实时充电功率、充电指示灯，支持预约充电，错峰充电更省钱。</p></div>
+      <div class="card reveal"><div class="ico">📊</div><h3>能耗统计</h3><p>总里程、昨日里程、平均能耗、平均车速，配合趋势图表看懂每一段行程。</p></div>
+      <div class="card reveal"><div class="ico">📍</div><h3>位置找车</h3><p>车辆定位、地址解析与天气信息，一键唤起导航找车，商场停车场不再迷路。</p></div>
+      <div class="card reveal"><div class="ico">📶</div><h3>无感控车</h3><p>蓝牙免开关连接，靠近自动连接、携带手机即可解锁，支持摇晃解锁等便捷方式。</p></div>
+      <div class="card reveal"><div class="ico">🛡️</div><h3>哨兵模式</h3><p>车辆安防状态提醒，异常情况及时知晓，停车更安心。</p></div>
+      <div class="card reveal"><div class="ico">🧰</div><h3>诊断与日志</h3><p>整机状态、智能驾驶与日志诊断中心，问题可自助排查，异常可一键导出反馈。</p></div>
+      <div class="card reveal"><div class="ico">🔄</div><h3>在线更新</h3><p>三渠道更新通道，新版本应用内直接检测下载，可自由切换正式／测试通道。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 界面预览 -->
+<section id="preview" class="dl-sec">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <span class="kicker">Preview</span>
+      <h2>看看它长什么样</h2>
+      <p>清爽直观的界面，常用操作一步直达</p>
+    </div>
+    <div class="phones">
+      <div class="phone-wrap reveal">
+        <div class="phone">
+          <div class="screen">
+            <div class="ph-top"><span>远程控制</span><span class="live">在线</span></div>
+            <div class="ph-grid">
+              <div class="ph-key"><span class="em">🔒</span><span>上锁</span></div>
+              <div class="ph-key"><span class="em">🔓</span><span>解锁</span></div>
+              <div class="ph-key"><span class="em">🪟</span><span>关窗</span></div>
+              <div class="ph-key"><span class="em">📣</span><span>寻车</span></div>
+              <div class="ph-key"><span class="em">🚪</span><span>开尾箱</span></div>
+              <div class="ph-key"><span class="em">❄️</span><span>空调</span></div>
+            </div>
+            <div class="ph-row" style="background:var(--ph-card);border-radius:14px;padding:12px 14px;box-shadow:0 4px 14px rgba(20,50,70,.06)">
+              <span class="l"><span class="em">📍</span>车辆位置</span><span class="r">距你 320 m</span>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">远程控制</div>
+      </div>
+      <div class="phone-wrap reveal">
+        <div class="phone">
+          <div class="screen">
+            <div class="ph-top"><span>能耗统计</span><span class="live">近 7 天</span></div>
+            <div class="ph-bars">
+              <div class="bars">
+                <i style="height:52%"></i><i style="height:74%"></i><i style="height:38%"></i>
+                <i style="height:86%"></i><i style="height:60%"></i><i style="height:44%"></i><i style="height:70%"></i>
+              </div>
+              <div class="axis"><span>周一</span><span>周三</span><span>周五</span><span>周日</span></div>
+            </div>
+            <div class="ph-kv">
+              <div class="b"><div class="k">总里程</div><div class="v">12,345<small> km</small></div></div>
+              <div class="b"><div class="k">平均能耗</div><div class="v">13.2<small> kWh</small></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">能耗统计</div>
+      </div>
+      <div class="phone-wrap reveal">
+        <div class="phone">
+          <div class="screen">
+            <div class="ph-top"><span>充电管理</span><span class="live">充电中</span></div>
+            <div class="ph-charge">
+              <div class="big">6.8<small> kW</small></div>
+              <div class="cap">实时充电功率 · 预计 1h20m 充满</div>
+              <div class="ph-bar"><i></i></div>
+            </div>
+            <div class="ph-list">
+              <div class="ph-row"><span class="l"><span class="em">🔌</span>充电状态</span><span class="r ok">进行中</span></div>
+              <div class="ph-row"><span class="l"><span class="em">🕗</span>预约充电</span><span class="r">23:00 起</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-cap">充电管理</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- 下载 -->
-<section class="dl-sec" id="download">
+<section id="download">
   <div class="wrap">
-    <div class="sec-title">
+    <div class="sec-title reveal">
+      <span class="kicker">Download</span>
       <h2>选择下载渠道</h2>
       <p>三个渠道版本一致，按你的网络情况任选其一</p>
     </div>
     <div class="dl-grid">
-      <a class="dl-card" id="dlS3" href="https://cn-nb2.rains3.com/dump/wuling-assistant.apk">
+      <a class="dl-card reveal" id="dlS3" href="https://cn-nb2.rains3.com/dump/wuling-assistant-v119.apk">
         <span class="tag">推荐 · 直连最快</span>
         <h3>主下载源</h3>
         <p>对象存储直链，下载速度快，适合国内网络。</p>
         <span class="go">下载 APK</span>
       </a>
-      <a class="dl-card" id="dlGh" href="https://github.com/daiyuxiang520/geren-update/releases/latest">
+      <a class="dl-card reveal" id="dlGh" href="https://github.com/daiyuxiang520/geren-update/releases/latest">
         <span class="tag alt">GitHub</span>
         <h3>GitHub Releases</h3>
         <p>海外网络更稳定，可查看完整历史版本与更新说明。</p>
         <span class="go">前往下载</span>
       </a>
-      <a class="dl-card" id="dlGitee" href="https://gitee.com/daiyuxiang520/geren-update/releases">
+      <a class="dl-card reveal" id="dlGitee" href="https://gitee.com/daiyuxiang520/geren-update/releases">
         <span class="tag alt">Gitee</span>
         <h3>Gitee 发行版</h3>
         <p>国内代码托管平台，下载与访问速度友好。</p>
         <span class="go">前往下载</span>
       </a>
+    </div>
+    <div class="dl-meta reveal">当前版本 <b id="dlVer">v119 · 4.3.0</b> · 安装包约 12.2 MB · 签名 MD5 <code id="dlMd5">016bda09…51acdd</code></div>
+  </div>
+</section>
+
+<!-- 安装指引 -->
+<section id="guide">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <span class="kicker">Install</span>
+      <h2>四步装好</h2>
+      <p>安卓手机安装第三方 APK 的完整流程</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>下载安装包</h3><p>从上方任一渠道下载 <b>.apk</b> 文件到手机。建议用主下载源，速度最快。</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>允许未知来源</h3><p>弹出提示时选择「允许此来源安装」。若未弹出，到 设置 → 安全 → 安装未知应用 中为本浏览器授权。</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>安装并打开</h3><p>点击安装包完成安装。如被手机管家拦截，选择「仍要安装」即可。</p></div>
+      <div class="step reveal"><div class="n">4</div><h3>登录账号</h3><p>打开 App，在「我的」页填入你的账号 Token 即可开始使用。配置项有说明引导。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="dl-sec">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <span class="kicker">FAQ</span>
+      <h2>常见问题</h2>
+      <p>安装使用前先看看这里</p>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary>这是官方应用吗？</summary><div class="a">不是。本项目为个人开发的<b>第三方开源客户端</b>，与上汽通用五菱汽车股份有限公司及任何汽车厂商均无关联，亦未获得其授权或认可。请自行评估使用风险。</div></details>
+      <details class="reveal"><summary>需要付费吗？有广告吗？</summary><div class="a">完全免费、完全开源、无任何广告。项目代码托管在 <a href="https://github.com/daiyuxiang520/geren-update" target="_blank" rel="noopener">GitHub</a> 与 <a href="https://gitee.com/daiyuxiang520/geren-update" target="_blank" rel="noopener">Gitee</a>，欢迎查看与反馈。</div></details>
+      <details class="reveal"><summary>支持哪些车型？</summary><div class="a">只要是能够通过官方 App 远程控车的五菱 / 宝骏车型，基本都适用。具体功能（如充电管理）视车型上报能力而定，以实测结果为准。</div></details>
+      <details class="reveal"><summary>我的账号和数据安全吗？</summary><div class="a">App 直接与官方接口通信，不经过任何第三方服务器；登录凭证仅保存在你的手机本地，不会上传到开发者处。</div></details>
+      <details class="reveal"><summary>安装时提示风险 / 装不上怎么办？</summary><div class="a">这是安卓对第三方 APK 的常规提示。请在系统中允许「未知来源」，被安全软件拦截时选择「仍要安装」即可。</div></details>
+      <details class="reveal"><summary>怎么更新到新版本？</summary><div class="a">App 内「设置 → 检查更新」会自动检测并可切换正式／测试通道；也可以直接回到本页下载新版覆盖安装（签名一致，可直接覆盖，无需卸载）。</div></details>
     </div>
   </div>
 </section>
@@ -276,12 +564,13 @@
 <!-- 更新日志 -->
 <section id="changelog">
   <div class="wrap">
-    <div class="sec-title">
+    <div class="sec-title reveal">
+      <span class="kicker">Changelog</span>
       <h2>最新更新</h2>
       <p>每次发版都会同步在这里</p>
     </div>
-    <div class="log">
-      <h3>更新日志 <span class="pill" id="logVer">v99</span></h3>
+    <div class="log reveal">
+      <h3>更新日志 <span class="pill" id="logVer">v119 · 4.3.0</span></h3>
       <pre id="logBody">正在获取最新更新说明…</pre>
     </div>
   </div>
@@ -293,7 +582,10 @@
       <div class="col">
         <h4>五菱车控</h4>
         <a href="#features">功能介绍</a>
+        <a href="#preview">界面预览</a>
         <a href="#download">下载安装</a>
+        <a href="#guide">安装指引</a>
+        <a href="#faq">常见问题</a>
         <a href="#changelog">更新日志</a>
       </div>
       <div class="col">
@@ -339,13 +631,30 @@
     var b = e.target.closest('button'); if (b) applyTheme(b.getAttribute('data-t'));
   });
 
-  /* ---------- 更新日志：同源 /update.json（经 CF Worker 分流） ---------- */
+  /* ---------- 滚动渐显 ---------- */
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    els.forEach(function(el, i){ el.style.transitionDelay = (Math.min(i,6)*40)+'ms'; io.observe(el); });
+  })();
+
+  /* ---------- 更新信息：同源 /update.json（经 CF Worker 分流） ---------- */
   var RAW = '/update.json';
   fetch(RAW + '?t=' + Date.now(), {cache:'no-store'})
     .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
     .then(function(d){
       var vn = d.versionName || '', vc = d.versionCode || '';
       if (vc || vn) document.getElementById('verText').textContent = '最新版本 v' + vc + ' · ' + vn;
+      if (vc || vn) document.getElementById('dlVer').textContent = 'v' + vc + ' · ' + vn;
+      if (d.md5) document.getElementById('dlMd5').textContent = String(d.md5).slice(0,8) + '…' + String(d.md5).slice(-6);
       if (d.apkUrl) {
         document.getElementById('mainDl').href = d.apkUrl;
         document.getElementById('dlS3').href = d.apkUrl;
