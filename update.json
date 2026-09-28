@@ -1,8 +1,8 @@
 {
-  "versionCode": 134,
-  "versionName": "4.6.0",
-  "updateLog": "v134 (4.6.0) 安装包体积减半 + 大屏适配\n\n【1】安装包体积减少 55.6%\n从 14.6 MB 降到 6.5 MB，下载更快、占用更小，功能一个不少。\n\n【2】适配平板与折叠屏\n手机端体验完全不变。平板、折叠屏展开后不再被横向拉满，\n内容居中限宽、底部导航收紧，阅读宽度更舒适。\n\n【3】代码质量清理\n清除全部 51 项编译警告，其中 17 项是废弃 API 的真实迁移\n（蓝牙写入、连接、标签页、图片加载等），提升长期可维护性。\n\n【4】Android 17 适配\n已适配最新 Android 17（API 37）的全部行为变更。\n\n【校验信息】\n- versionCode: 134 / versionName: 4.6.0（正式版）\n- MD5: 0b4721fb44473bf60877ad445ab68037\n- 签名与历史版本一致，可覆盖安装",
-  "apkUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v134.apk",
+  "versionCode": 135,
+  "versionName": "4.6.1",
+  "updateLog": "v135 (4.6.1) 后台自动刷新降频\n\n【1】修复后台持续轮询\n此前 30 秒定频轮询在退到后台/锁屏后仍持续发送请求，只有退出登录才停止，\n属实打实的待机耗电。现改为两档：\n· 前台：30 秒（不变）\n· 后台 / 锁屏：5 分钟（降频而非停止，兼顾省电与数据新鲜度）\n回到前台时立即补一次刷新，不会看到滞后数据。\n\n【2】依赖清理\n移除 2 个零引用依赖（core-splashscreen、security-crypto），\n并首次启用长期闲置的 lifecycle-process。\n\n【校验信息】\n- versionCode: 135 / versionName: 4.6.1\n- MD5: 7cdcb6bf36a0c98b5fdcdab505760186\n- 签名与历史版本一致，可覆盖安装",
+  "apkUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v135.apk",
   "forceUpdate": false,
-  "md5": "0b4721fb44473bf60877ad445ab68037"
+  "md5": "7cdcb6bf36a0c98b5fdcdab505760186"
 }
