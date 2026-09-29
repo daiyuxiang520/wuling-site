@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; font-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <title>五菱车控 · 车辆远程助手</title>
-<meta name="description" content="五菱车控 —— 车辆状态查看、远程控制、充电管理、能耗统计、位置找车、无感控车，一款为爱车打造的第三方安卓客户端。完全开源，免费使用，无广告。">
+<meta name="description" content="五菱车控提供车辆状态查看、远程控制、充电管理、能耗统计、位置找车、无感控车，一款为爱车打造的第三方安卓客户端。完全开源，免费使用，无广告。">
 <meta name="keywords" content="五菱,五菱车控,远程控制,充电管理,能耗统计,位置找车,无感控车,安卓,开源,APK">
 <meta name="theme-color" content="#0b7285">
 <link rel="icon" href="icon.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://wulingchekong.ccwu.cc/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="五菱车控 · 车辆远程助手 —— 开源免费的第三方安卓车控客户端">
+<meta property="og:image:alt" content="五菱车控 · 车辆远程助手，开源免费的第三方安卓车控客户端">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:url" content="https://wulingchekong.ccwu.cc/">
 
@@ -40,9 +40,9 @@
   "alternateName": "Wuling Remote",
   "operatingSystem": "Android",
   "applicationCategory": "UtilitiesApplication",
-  "softwareVersion": "4.6.1",
-  "downloadUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v135.apk",
-  "installUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v135.apk",
+  "softwareVersion": "4.9.1",
+  "downloadUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v145.apk",
+  "installUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v145.apk",
   "url": "https://wulingchekong.ccwu.cc/",
   "description": "车辆状态查看、远程控制、充电管理、能耗统计、位置找车、无感控车，一款为爱车打造的第三方安卓客户端。完全开源，免费使用，无广告。",
   "isAccessibleForFree": true,
@@ -144,6 +144,10 @@
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
   img{max-width:100%}
 
+  /* ---------- 线性图标（currentColor 跟随主题） ---------- */
+  .i{width:1em;height:1em;display:inline-block;vertical-align:-.14em;flex:0 0 auto;
+    fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
   /* ---------- 滚动渐显 ---------- */
   .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
   .js .reveal.in{opacity:1;transform:none}
@@ -156,9 +160,10 @@
   .theme-switch{display:inline-flex;gap:3px;padding:3px;border-radius:999px;
     background:var(--card-bg);border:1px solid var(--card-border);backdrop-filter:var(--card-blur);transition:.25s}
   .theme-switch button{width:30px;height:30px;border:none;background:transparent;border-radius:50%;
-    font-size:14px;cursor:pointer;opacity:.5;transition:.2s;display:grid;place-items:center;line-height:1}
+    font-size:15px;color:var(--ink);cursor:pointer;opacity:.55;transition:.2s;display:grid;place-items:center;line-height:1}
+  .theme-switch button .i{width:16px;height:16px;stroke-width:1.8}
   .theme-switch button:hover{opacity:1}
-  .theme-switch button.active{opacity:1;background:var(--brand);box-shadow:0 0 0 2px rgba(255,255,255,.45)}
+  .theme-switch button.active{opacity:1;background:var(--brand);color:var(--btn-primary-ink);box-shadow:0 0 0 2px rgba(255,255,255,.45)}
 
   /* ---------- 顶部导航 ---------- */
   header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(14px);
@@ -194,8 +199,10 @@
   .btn-ghost{background:var(--btn-ghost-bg);color:var(--btn-ghost-ink);border:1px solid var(--btn-ghost-border)}
   .btn-ghost:hover{border-color:var(--brand)}
   .btn small{font-weight:400;font-size:12.5px;opacity:.72;display:block;line-height:1.2}
+  .btn .i{width:19px;height:19px;stroke-width:1.9}
   .hero-facts{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
   .hero-facts span{display:inline-flex;align-items:center;gap:7px}
+  .hero-facts .i{width:16px;height:16px;color:var(--brand)}
   .hero-facts b{color:var(--ink);font-weight:650}
   .hero-visual{flex:0 0 auto;display:flex;justify-content:center;position:relative}
   .hero-visual::after{content:"";position:absolute;inset:-30px;border-radius:50%;
@@ -214,9 +221,10 @@
   .card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);
     padding:22px 20px;transition:.25s;backdrop-filter:var(--card-blur)}
   .card:hover{transform:translateY(-4px);box-shadow:var(--card-shadow);border-color:var(--brand)}
-  .card .ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:21px;margin-bottom:13px;
-    background:var(--ico-bg);transition:.25s}
-  .card:hover .ico{transform:scale(1.12) rotate(-5deg)}
+  .card .ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:20px;margin-bottom:13px;
+    background:var(--ico-bg);color:var(--brand);transition:.25s}
+  .card:hover .ico{transform:scale(1.08)}
+  .card .ico .i{stroke-width:1.75;width:22px;height:22px}
   .card h3{font-size:16px;margin-bottom:7px}
   .card p{font-size:13.6px;color:var(--muted);line-height:1.6}
 
@@ -312,9 +320,9 @@
     <b>五菱车控</b>
     <span class="sp"></span>
     <div class="theme-switch" id="themeSwitch" role="radiogroup" aria-label="主题切换">
-      <button type="button" role="radio" aria-checked="false" data-t="dark" title="赛博深色" aria-label="赛博深色">🌑</button>
-      <button type="button" role="radio" aria-checked="false" data-t="light" title="清新简约" aria-label="清新简约">☀️</button>
-      <button type="button" role="radio" aria-checked="false" data-t="glass" title="玻璃拟态" aria-label="玻璃拟态">🔮</button>
+      <button type="button" role="radio" aria-checked="false" data-t="dark" title="赛博深色" aria-label="赛博深色"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+      <button type="button" role="radio" aria-checked="false" data-t="light" title="清新简约" aria-label="清新简约"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg></button>
+      <button type="button" role="radio" aria-checked="false" data-t="glass" title="玻璃拟态" aria-label="玻璃拟态"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M12 3v18M4 7.5l8 4.5 8-4.5"/></svg></button>
     </div>
     <a class="link" href="#features">功能</a>
     <a class="link" href="#preview">界面</a>
@@ -329,20 +337,20 @@
 <div class="hero">
   <div class="wrap">
     <div class="txt">
-      <div class="ver-badge"><span class="dot"></span><span id="verText">最新版本 v135 · 4.6.1</span></div>
+      <div class="ver-badge"><span class="dot"></span><span id="verText">最新版本 v145 · 4.9.1</span></div>
       <h1>五菱车控</h1>
-      <p class="sub">车辆状态、远程控制、充电管理、能耗统计、位置找车、无感控车 —— 一款为爱车打造的第三方安卓客户端。完全开源，免费使用，无广告。</p>
+      <p class="sub">车辆状态、远程控制、充电管理、能耗统计、位置找车、无感控车。一款为爱车打造的第三方安卓客户端，完全开源，免费使用，无广告。</p>
       <div class="actions">
-        <a class="btn btn-primary" id="mainDl" href="https://cn-nb2.rains3.com/dump/wuling-assistant-v135.apk">
-          ⬇ 立即下载<small id="dlSize">APK · 安卓 · 6.5 MB</small>
+        <a class="btn btn-primary" id="mainDl" href="https://cn-nb2.rains3.com/dump/wuling-assistant-v145.apk">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg>立即下载<small id="dlSize">APK · 安卓 · 6.5 MB</small>
         </a>
         <a class="btn btn-ghost" href="#features">了解功能</a>
       </div>
       <div class="hero-facts">
-        <span>🔓 <b>完全开源</b></span>
-        <span>🆓 <b>免费无广告</b></span>
-        <span>📱 <b>Android 8.0+</b></span>
-        <span>🔒 <b>数据本机存储</b></span>
+        <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0"/><rect x="4" y="11" width="16" height="10" rx="2"/></svg><b>完全开源</b></span>
+        <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.6-.8-1.7-1.3-3-1.3-1.6 0-2.7.7-2.7 1.8 0 1 .9 1.5 2.5 1.9l1.4.4c1.7.4 2.6 1 2.6 2.1 0 1.2-1.2 2-3 2-1.4 0-2.6-.5-3.2-1.4"/></svg><b>免费无广告</b></span>
+        <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg><b>Android 8.0+</b></span>
+        <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 9.5 4-1.2 7-5.1 7-9.5V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg><b>数据本机存储</b></span>
       </div>
     </div>
     <div class="hero-visual">
@@ -362,14 +370,14 @@
       <p>覆盖日常用车的高频场景</p>
     </div>
     <div class="grid">
-      <div class="card reveal"><div class="ico">🚗</div><h3>车辆状态总览</h3><p>车门、车窗、尾门、车灯、胎压、转向灯实时状态，电量／油量、剩余续航、低压电池、发动机温度一眼看清。</p></div>
-      <div class="card reveal"><div class="ico">🔐</div><h3>远程控制</h3><p>远程上锁解锁、一键关窗开窗、开尾箱、上电下电、寻车鸣笛，忘关车窗不用再跑下楼。</p></div>
-      <div class="card reveal"><div class="ico">🔋</div><h3>充电管理</h3><p>充电状态与实时充电功率、充电指示灯，支持预约充电，错峰充电更省钱。</p></div>
-      <div class="card reveal"><div class="ico">📊</div><h3>能耗统计</h3><p>总里程、昨日里程、平均能耗、平均车速，配合趋势图表看懂每一段行程。</p></div>
-      <div class="card reveal"><div class="ico">📍</div><h3>位置找车</h3><p>车辆定位、地址解析与天气信息，一键唤起导航找车，商场停车场不再迷路。</p></div>
-      <div class="card reveal"><div class="ico">📶</div><h3>无感控车</h3><p>蓝牙免开关连接，靠近自动连接、携带手机即可解锁，支持摇晃解锁等便捷方式。</p></div>
-      <div class="card reveal"><div class="ico">🧰</div><h3>诊断与日志</h3><p>整机状态、智能驾驶与日志诊断中心，问题可自助排查，异常可一键导出反馈。</p></div>
-      <div class="card reveal"><div class="ico">🔄</div><h3>在线更新</h3><p>三渠道更新通道，新版本应用内直接检测下载，可自由切换正式／测试通道。</p></div>
+      <div class="card reveal"><div class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11l1.5-4.2A2 2 0 0 1 8.4 5.5h7.2a2 2 0 0 1 1.9 1.3L19 11"/><path d="M4 11h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1Z"/><circle cx="7" cy="14.5" r="1"/><circle cx="17" cy="14.5" r="1"/></svg></div><h3>车辆状态总览</h3><p>车门、车窗、尾门、车灯、胎压、转向灯实时状态，电量／油量、剩余续航、低压电池、发动机温度一眼看清。</p></div>
+      <div class="card reveal"><div class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="9" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/><path d="M12 13.5v2"/></svg></div><h3>远程控制</h3><p>远程上锁解锁、一键关窗开窗、开尾箱、上电下电、寻车鸣笛，忘关车窗不用再跑下楼。</p></div>
+      <div class="card reveal"><div class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="15" height="10" rx="2"/><path d="M21 10v4"/><path d="M9.5 10.5 7.5 13h3l-2 2.5"/></svg></div><h3>充电管理</h3><p>充电状态与实时充电功率、充电指示灯，支持预约充电，错峰充电更省钱。</p></div>
+      <div class="card reveal"><div class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>能耗统计</h3><p>总里程、昨日里程、平均能耗、平均车速，配合趋势图表看懂每一段行程。</p></div>
+      <div class="card reveal"><div class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>位置找车</h3><p>车辆定位、地址解析与天气信息，一键唤起导航找车，商场停车场不再迷路。</p></div>
+      <div class="card reveal"><div class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10m0 0-3.5-3.5M12 14l3.5-3.5"/><path d="M5 17.5v.5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-.5"/></svg></div><h3>无感控车</h3><p>蓝牙免开关连接，靠近自动连接、携带手机即可解锁，支持摇晃解锁等便捷方式。</p></div>
+      <div class="card reveal"><div class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h9"/><circle cx="18" cy="18" r="2.5"/></svg></div><h3>诊断与日志</h3><p>整机状态、智能驾驶与日志诊断中心，问题可自助排查，异常可一键导出反馈。</p></div>
+      <div class="card reveal"><div class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg></div><h3>在线更新</h3><p>三渠道更新通道，新版本应用内直接检测下载，可自由切换正式／测试通道。</p></div>
     </div>
   </div>
 </section>
@@ -378,7 +386,6 @@
 <section id="preview" class="dl-sec">
   <div class="wrap">
     <div class="sec-title reveal">
-      <span class="kicker">Preview</span>
       <h2>真实界面预览</h2>
       <p>以下均为 App 真机截图，实际以你安装的版本为准</p>
     </div>
@@ -406,7 +413,7 @@
       <p>三个渠道版本一致，按你的网络情况任选其一</p>
     </div>
     <div class="dl-grid">
-      <a class="dl-card reveal" id="dlS3" href="https://cn-nb2.rains3.com/dump/wuling-assistant-v135.apk">
+      <a class="dl-card reveal" id="dlS3" href="https://cn-nb2.rains3.com/dump/wuling-assistant-v145.apk">
         <span class="tag">推荐 · 直连最快</span>
         <h3>主下载源</h3>
         <p>对象存储直链，下载速度快，适合国内网络。</p>
@@ -425,7 +432,7 @@
         <span class="go">前往下载</span>
       </a>
     </div>
-    <div class="dl-meta reveal">当前版本 <b id="dlVer">v135 · 4.6.1</b> · 安装包约 6.5 MB · 签名 MD5 <code id="dlMd5">7cdcb6bf…60186</code></div>
+    <div class="dl-meta reveal">当前版本 <b id="dlVer">v145 · 4.9.1</b> · 安装包约 6.5 MB · 签名 MD5 <code id="dlMd5">43a7834e…10b8c4a</code></div>
   </div>
 </section>
 
@@ -433,7 +440,6 @@
 <section id="guide">
   <div class="wrap">
     <div class="sec-title reveal">
-      <span class="kicker">Install</span>
       <h2>四步装好</h2>
       <p>安卓手机安装第三方 APK 的完整流程</p>
     </div>
@@ -450,7 +456,6 @@
 <section id="faq" class="dl-sec">
   <div class="wrap">
     <div class="sec-title reveal">
-      <span class="kicker">FAQ</span>
       <h2>常见问题</h2>
       <p>安装使用前先看看这里</p>
     </div>
@@ -469,12 +474,11 @@
 <section id="changelog">
   <div class="wrap">
     <div class="sec-title reveal">
-      <span class="kicker">Changelog</span>
       <h2>最新更新</h2>
       <p>每次发版都会同步在这里</p>
     </div>
     <div class="log reveal">
-      <h3>更新日志 <span class="pill" id="logVer">v135 · 4.6.1</span></h3>
+      <h3>更新日志 <span class="pill" id="logVer">v145 · 4.9.1</span></h3>
       <pre id="logBody" role="status" aria-live="polite">正在获取最新更新说明…</pre>
     </div>
   </div>
