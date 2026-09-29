@@ -1,8 +1,8 @@
 {
-  "versionCode": 146,
-  "versionName": "4.9.2",
-  "updateLog": "v146 (4.9.2) 更新通道迁移 + 安装包签名校验\n\n【新增】\n· 安装包签名校验：下载完成后自动比对官方证书指纹，不一致直接拒绝安装\n· 有效拦截仿冒包与篡改包，保障你的账号与车辆安全\n\n【优化】\n· 更新检测主通道迁移至自建存储，国内直连更快更稳\n· 原有多条备用通道全部保留，任一路径不可用时可自动切换\n\n【校验信息】\n- versionCode: 146 / versionName: 4.9.2\n- MD5: 715a09af9208c3502855a581ad2186bd\n- SHA-256: f5d4e47899475d404395f7f456e740c53454ca7a96ff0b2895f54bf1d2080f42\n- 签名证书 SHA-256: 7b9f49df9bd31e131ac5f0cdfa0c65651f8e17eee75d3ed65cd2fe5b137d5e37\n- 签名证书与历史版本一致（CN=Wuling）",
-  "apkUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v146.apk",
+  "versionCode": 147,
+  "versionName": "4.10.0",
+  "updateLog": "v147 (4.10.0) 指令回执与 protobuf 直解析\n\n【新增】\n· 空调指令等待车端回执：拿到真实结果再提示，超时如实说明，不再谎报成功\n· protobuf 直解析：为后续按字段精准刷新打底，减少网络往返\n· 错误码字典：车控失败提示不再是裸码，直接告诉你原因\n\n【校验信息】\n- versionCode: 147 / versionName: 4.10.0\n- MD5: 0112b6aa5b57ec0f62bf745789197ac0\n- SHA-256: d6bd96768085eae3479bbc448cf560b82c904d9d2c3614c4f5a0adb0999c32c0\n- 签名证书 SHA-256: 7b9f49df9bd31e131ac5f0cdfa0c65651f8e17eee75d3ed65cd2fe5b137d5e37\n- 签名证书与历史版本一致（CN=Wuling）",
+  "apkUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v147.apk",
   "forceUpdate": false,
-  "md5": "715a09af9208c3502855a581ad2186bd"
+  "md5": "0112b6aa5b57ec0f62bf745789197ac0"
 }
