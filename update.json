@@ -1,8 +1,8 @@
 {
-  "versionCode": 145,
-  "versionName": "4.9.1",
-  "updateLog": "v145 (4.9.1) 紧急修复版：反馈提交失败\n\n【修复】\n· 修复「发送反馈」必定失败的问题（请求缺少 User-Agent 被服务端拒收）\n· 提交失败时不再显示英文报错，改为中文提示并引导邮件反馈\n\n【说明】\n· 若你使用的是 v144，请务必升级到本版\n· 功能与 v144 一致，仅修复反馈通道\n\n【校验信息】\n- versionCode: 145 / versionName: 4.9.1\n- MD5: 43a7834eb6be6dc80b4333367c2ac1d0\n- SHA-256: b8209abb97378e0e143507df43dcb3f4a06f5740684615a8f0b27079110b8c4a\n- 签名证书与历史版本一致（CN=Wuling）",
-  "apkUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v145.apk",
+  "versionCode": 146,
+  "versionName": "4.9.2",
+  "updateLog": "v146 (4.9.2) 更新通道迁移 + 安装包签名校验\n\n【新增】\n· 安装包签名校验：下载完成后自动比对官方证书指纹，不一致直接拒绝安装\n· 有效拦截仿冒包与篡改包，保障你的账号与车辆安全\n\n【优化】\n· 更新检测主通道迁移至自建存储，国内直连更快更稳\n· 原有多条备用通道全部保留，任一路径不可用时可自动切换\n\n【校验信息】\n- versionCode: 146 / versionName: 4.9.2\n- MD5: 715a09af9208c3502855a581ad2186bd\n- SHA-256: f5d4e47899475d404395f7f456e740c53454ca7a96ff0b2895f54bf1d2080f42\n- 签名证书 SHA-256: 7b9f49df9bd31e131ac5f0cdfa0c65651f8e17eee75d3ed65cd2fe5b137d5e37\n- 签名证书与历史版本一致（CN=Wuling）",
+  "apkUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v146.apk",
   "forceUpdate": false,
-  "md5": "43a7834eb6be6dc80b4333367c2ac1d0"
+  "md5": "715a09af9208c3502855a581ad2186bd"
 }
