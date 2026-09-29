@@ -1,8 +1,8 @@
 {
-  "versionCode": 135,
-  "versionName": "4.6.1",
-  "updateLog": "v135 (4.6.1) 后台自动刷新降频\n\n【1】修复后台持续轮询\n此前 30 秒定频轮询在退到后台/锁屏后仍持续发送请求，只有退出登录才停止，\n属实打实的待机耗电。现改为两档：\n· 前台：30 秒（不变）\n· 后台 / 锁屏：5 分钟（降频而非停止，兼顾省电与数据新鲜度）\n回到前台时立即补一次刷新，不会看到滞后数据。\n\n【2】依赖清理\n移除 2 个零引用依赖（core-splashscreen、security-crypto），\n并首次启用长期闲置的 lifecycle-process。\n\n【校验信息】\n- versionCode: 135 / versionName: 4.6.1\n- MD5: 7cdcb6bf36a0c98b5fdcdab505760186\n- 签名与历史版本一致，可覆盖安装",
-  "apkUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v135.apk",
+  "versionCode": 145,
+  "versionName": "4.9.1",
+  "updateLog": "v145 (4.9.1) 紧急修复版：反馈提交失败\n\n【修复】\n· 修复「发送反馈」必定失败的问题（请求缺少 User-Agent 被服务端拒收）\n· 提交失败时不再显示英文报错，改为中文提示并引导邮件反馈\n\n【说明】\n· 若你使用的是 v144，请务必升级到本版\n· 功能与 v144 一致，仅修复反馈通道\n\n【校验信息】\n- versionCode: 145 / versionName: 4.9.1\n- MD5: 43a7834eb6be6dc80b4333367c2ac1d0\n- SHA-256: b8209abb97378e0e143507df43dcb3f4a06f5740684615a8f0b27079110b8c4a\n- 签名证书与历史版本一致（CN=Wuling）",
+  "apkUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v145.apk",
   "forceUpdate": false,
-  "md5": "7cdcb6bf36a0c98b5fdcdab505760186"
+  "md5": "43a7834eb6be6dc80b4333367c2ac1d0"
 }
