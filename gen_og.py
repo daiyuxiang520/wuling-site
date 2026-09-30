@@ -65,7 +65,7 @@ draw.text((tx, 300), "车辆远程助手 · 完全开源免费", font=sub_f, fil
 
 # 版本徽章
 badge_f = font(28)
-btxt = "Android · v145 4.9.1"
+btxt = "Android · v155 4.12.0"
 bw = draw.textlength(btxt, font=badge_f) + 40
 bx, by = tx, 372
 draw.rounded_rectangle([bx, by, bx + bw, by + 52], radius=26, fill=(6, 26, 34, 155))
