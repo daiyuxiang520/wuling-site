@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
-# 接口与生成脚本无需被索引
-Disallow: /update.json
-Disallow: /gen_og.py
 
 Sitemap: https://wulingchekong.ccwu.cc/sitemap.xml
