@@ -1,8 +1,8 @@
 {
-  "versionCode": 155,
-  "versionName": "4.12.0",
-  "updateLog": "v155 (4.12.0) 正式版 · 全新玻璃拟态界面 + 能耗页改版 + 更新链路精简\n\n【界面焕新】\n· 全新玻璃拟态 UI 框架：卡片升级为三级玻璃材质（普通 / 抬升 / 浮起），配发丝描边与顶边高光\n· 全局主色收敛为单一「能量色」电青；颜色只用于表达真实状态，装饰统一降为中性灰\n· 新增背景环境光层（径向光晕），玻璃卡片有光可透、层级分明\n· 亮色模式完整适配：底色、投影、环境光晕分别调校，浅色下同样层级清晰\n\n【能耗页改版】\n· 柱状图改为油电双色堆叠：下段油（黄）、上段电（绿），油按 1 L = 3.0 kWh 折算后同轴比较\n· 统一全页图表系列色（饼图 / 柱状 / 图例），并补一行折算合计\n· 移除单日维度下的「油耗趋势」折线图，日维度只看堆叠柱\n\n【更新链路精简】\n· APK 仅从雨云对象存储下载；Gitee 改为仅用于检测版本号，不再提供安装包下载；GitHub 通道整体移除\n\n【修复与打磨】\n· 无感控车设置：修复「蓝牙自动连接 / 靠近自动解锁 / 前台保活 / 记录蓝牙日志」开关被长描述挤出卡片右边缘的错位\n· 详情页三张卡补齐内边距，行文字不再贴着玻璃边缘\n· 数值为 0 时统一走三态占位，不再渲染成「-- V」「-- A」这类假占位\n\n【升级提示】\n· 此前停留在测试通道（4.11.x）的用户，请在「我的 → 检查更新」切换到稳定通道获取本版\n\n【校验信息】\n- versionCode: 155 / versionName: 4.12.0\n- MD5: f8b65031aa3a450bfa03938b9ba3b21c\n- SHA-256: 9fac705c299f415a8967e37362397074ba8a3fbccd7e63b5a4b0fbc995ff80d1\n- 签名证书 SHA-256: 7b9f49df9bd31e131ac5f0cdfa0c65651f8e17eee75d3ed65cd2fe5b137d5e37\n- 签名证书与历史版本一致（CN=Wuling）",
-  "apkUrl": "https://cn-nb2.rains3.com/dump/wuling-assistant-v155.apk",
+  "versionCode": 203,
+  "versionName": "4.23.0",
+  "updateLog": "主题设置新增「星光蓝」预设配色，一键切换整车界面风格。\n\n首页、「我的」页、设置页重新排版，充电状态独立成条，快捷控制按钮收进一张卡片。\n\n「获取蓝牙钥匙」现在会显示真实状态：缺权限时会提示并可一键授权，已获取则显示钥匙标识。\n\n修复长按桌面图标里的「锁车 / 关窗 / 寻车」点了没反应。\n\n修复桌面小组件点开可能跳到崩溃日志页的问题。\n\n【校验信息】\n- versionCode: 203 / versionName: 4.23.0\n- MD5: ce97a3a236f7b29b3ce79417a811ab3a\n- SHA-256: 028cf5faf99cedde950c6a0b8fc10fe8c6b18adf2597424a1ad2d15df5cbd16e\n- 签名证书 SHA-256: 7b9f49df9bd31e131ac5f0cdfa0c65651f8e17eee75d3ed65cd2fe5b137d5e37\n- 签名证书与历史版本一致（CN=Wuling）",
+  "apkUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v203/wuling-assistant-v203.apk",
   "forceUpdate": false,
-  "md5": "f8b65031aa3a450bfa03938b9ba3b21c"
+  "md5": "ce97a3a236f7b29b3ce79417a811ab3a"
 }
