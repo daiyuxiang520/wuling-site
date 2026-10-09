@@ -38,13 +38,13 @@
   "alternateName": "Wuling Remote",
   "operatingSystem": "Android",
   "applicationCategory": "UtilitiesApplication",
-  "softwareVersion": "4.23.0",
-  "downloadUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v203/wuling-assistant-v203.apk",
-  "installUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v203/wuling-assistant-v203.apk",
+  "softwareVersion": "4.34.0",
+  "downloadUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v215/wuling-assistant-v215.apk",
+  "installUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v215/wuling-assistant-v215.apk",
   "url": "https://wulingchekong.ccwu.cc/",
   "description": "车辆状态查看、远程控制、充电管理、能耗统计、位置找车、无感控车，一款为爱车打造的第三方安卓客户端。免费使用，无广告，数据仅存本机。",
   "isAccessibleForFree": true,
-  "fileSize": "6.8MB",
+  "fileSize": "6.7MB",
   "softwareHelp": {
     "@type": "CreativeWork",
     "url": "https://wulingchekong.ccwu.cc/#guide"
@@ -404,13 +404,13 @@
 <div class="hero">
   <div class="wrap">
     <div class="hcopy">
-      <div class="pill"><span class="dot"></span><span id="verText">最新版本 v203 · 4.23.0</span></div>
+      <div class="pill"><span class="dot"></span><span id="verText">最新版本 v215 · 4.34.0</span></div>
       <h1>把整台车<br>装进<em>手机</em>里</h1>
       <p class="sub">车辆状态、远程控制、充电管理、能耗统计、位置找车、无感控车。免费使用，无广告，数据仅存本机。</p>
       <div class="actions">
-        <a class="btn btn-a" id="mainDl" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v203/wuling-assistant-v203.apk">
+        <a class="btn btn-a" id="mainDl" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v215/wuling-assistant-v215.apk">
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg>
-          <span>立即下载<small id="dlSize">APK · 安卓 · 6.8 MB</small></span>
+          <span>立即下载<small id="dlSize">APK · 安卓 · 6.7 MB</small></span>
         </a>
         <a class="btn btn-b" href="#features">了解功能</a>
       </div>
@@ -493,7 +493,7 @@
       <p>App 内置签名校验，非官方渠道的安装包一律无法安装</p>
     </div>
     <div class="dl">
-      <a class="d d-wide reveal" id="dlS3" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v203/wuling-assistant-v203.apk">
+      <a class="d d-wide reveal" id="dlS3" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v215/wuling-assistant-v215.apk">
         <div class="row">
           <div class="txt">
             <span class="dt">推荐 · 直连最快</span>
@@ -510,7 +510,7 @@
         <code class="fp">7b9f49df 9bd31e13 1ac5f0cd fa0c6565<br>1f8e17ee e75d3ed6 5cd2fe5b 137d5e37</code>
       </div>
     </div>
-    <div class="meta reveal">当前版本 <b id="dlVer">v203 · 4.23.0</b> · 安装包约 6.8 MB · 安装包 MD5 <code id="dlMd5">ce97a3a2…1ab3a</code></div>
+    <div class="meta reveal">当前版本 <b id="dlVer">v215 · 4.34.0</b> · 安装包约 6.7 MB · 安装包 MD5 <code id="dlMd5">0126c2c1…c61356</code></div>
   </div>
 </section>
 
@@ -552,7 +552,7 @@
       <p>每次发版都会同步到这里</p>
     </div>
     <div class="log reveal">
-      <div class="lh"><h3>更新日志</h3><span class="v" id="logVer">v203 · 4.23.0</span></div>
+      <div class="lh"><h3>更新日志</h3><span class="v" id="logVer">v215 · 4.34.0</span></div>
       <pre id="logBody" role="status" aria-live="polite">正在获取最新更新说明…</pre>
     </div>
   </div>
@@ -633,7 +633,25 @@
         document.getElementById('logVer').textContent = 'v' + vc + ' · ' + vn;
       }
       if (d.md5) document.getElementById('dlMd5').textContent = String(d.md5).slice(0,8) + '…' + String(d.md5).slice(-6);
-      if (d.apkUrl) { document.getElementById('mainDl').href = d.apkUrl; document.getElementById('dlS3').href = d.apkUrl; }
+      if (d.apkUrl) {
+        document.getElementById('mainDl').href = d.apkUrl;
+        document.getElementById('dlS3').href = d.apkUrl;
+        /* 同步结构化数据（schema.org SoftwareApplication）。
+           静态 HTML 里的 downloadUrl/installUrl/softwareVersion 是「JS 未执行时的兜底」，
+           搜索引擎抓取的也正是这份静态值 —— 只改按钮不改 schema，就会出现
+           页面显示 v215 而结构化数据仍指向已被清理的 v155 死链（2026-10 实测）。
+           这里用同一份 update.json 补齐，保证两处永远是同一个版本。 */
+        try {
+          var ldEl = document.querySelector('script[type="application/ld+json"]');
+          if (ldEl) {
+            var ld = JSON.parse(ldEl.textContent);
+            ld.downloadUrl = d.apkUrl;
+            ld.installUrl = d.apkUrl;
+            if (vn) ld.softwareVersion = vn;
+            ldEl.textContent = JSON.stringify(ld, null, 2);
+          }
+        } catch (e) {}
+      }
       if (d.updateLog) document.getElementById('logBody').textContent = String(d.updateLog).trim();
     })
     .catch(function(){
