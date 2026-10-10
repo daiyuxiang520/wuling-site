@@ -416,10 +416,19 @@
       } else if (timers[id]) { clearTimeout(timers[id]); timers[id] = null; }
     });
   }, { threshold: 0.25 });   // 0.25 而非 0.5：部分区块高过视口，半可见永远达不到
-  ['download', 'guide', 'features', 'faq', 'changelog'].forEach(function (id) {
-    var el = document.getElementById(id);
-    if (el) io.observe(el);
-  });
+  // 脚本在 <head> 里执行，此时 <body> 尚未解析，必须等 DOM 就绪后才能 observe，
+  // 否则 getElementById 全部返回 null、observer 变成空壳（实测踩过）。
+  function boot() {
+    ['download', 'guide', 'features', 'faq', 'changelog'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
   if (flush()) return;
   var tries = 0;
   tick = setInterval(function () {
