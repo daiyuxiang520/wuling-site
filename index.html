@@ -380,6 +380,53 @@
 <!-- 51.la 网站统计 · 站点 ID 3RTAtPly8eSUbimp -->
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>LA.init({id:"3RTAtPly8eSUbimp",ck:"3RTAtPly8eSUbimp",autoTrack:true,hashMode:true})</script>
+
+<!-- 区块浏览打点：滚到某区块并停留 1.5s 才计一次，避免"路过"误报 -->
+<script>
+(function () {
+  if (!window.IntersectionObserver) return;
+  var QUEUE = [], sent = {}, timers = {}, tick = null;
+  // LA.track 由 event SDK 异步装载，就绪前先入队，就绪后补发，避免首屏漏记
+  function ready() {
+    return window.LA && typeof LA.track === 'function' &&
+           String(LA.track).indexOf('自2022') === -1;
+  }
+  function flush() {
+    if (!ready()) return false;
+    while (QUEUE.length) {
+      var id = QUEUE.shift();
+      if (sent[id]) continue;
+      sent[id] = true;
+      try { LA.track('区块浏览', { 区块: id }); } catch (e) {}
+    }
+    return true;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var el = e.target, id = el.id, hit = sent[id] || QUEUE.indexOf(id) >= 0;
+      if (hit) return;
+      if (e.isIntersecting) {
+        if (!timers[id]) {
+          timers[id] = setTimeout(function () {
+            timers[id] = null;
+            if (sent[id]) return;
+            QUEUE.push(id); io.unobserve(el); flush();
+          }, 1500);
+        }
+      } else if (timers[id]) { clearTimeout(timers[id]); timers[id] = null; }
+    });
+  }, { threshold: 0.25 });   // 0.25 而非 0.5：部分区块高过视口，半可见永远达不到
+  ['download', 'guide', 'features', 'faq', 'changelog'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) io.observe(el);
+  });
+  if (flush()) return;
+  var tries = 0;
+  tick = setInterval(function () {
+    if (flush() || ++tries > 20) { clearInterval(tick); tick = null; }
+  }, 500);
+})();
+</script>
 </head>
 <body>
 
