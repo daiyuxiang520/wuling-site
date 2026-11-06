@@ -1,20 +1,29 @@
 // 五菱车控 · 官网 Cloudflare Worker
 //
-// 职责：把 wulingchekong.ccwu.cc 的请求分发给静态源，并修正雨云 S3 的响应头。
+// 职责：把 wulingchekong.ccwu.cc 的请求分发给静态源，并修正上游的响应头。
 //
-// 源选择（v236 保留自旧版，不能删 —— 这是海外可用性的关键）：
-//   国内(CN) → 雨云 S3；海外 → jsDelivr；两者失败 → GitHub raw。
+// ⚠️ 2026-11-06：雨云对象存储下线（HTTP NoSuchBucket + SFTP 认证失败），
+//    原本的「国内 → 雨云 S3」这一路已不可用。CN 改为 GitHub raw：
+//    Worker 运行在 Cloudflare 边缘，出站访问 raw.githubusercontent 不经过
+//    国内网络，因此它仍然可用 —— 而**国内用户直连 raw 是不行的**，
+//    所以这个源只对 Worker 内部有意义。
+//
+//    长期方案是迁到 Cloudflare Pages（直接连 wuling-site 仓库，
+//    不再需要这个 Worker）。本文件保留为「暂时不迁 Pages」的兜底。
+//
+// 源选择：
+//   国内(CN) → GitHub raw；海外 → jsDelivr；两者失败 → GitHub raw。
 //
 // 缓存分层（v236 从 wuling-site-v2/worker.js 合并进来，旧版完全没有缓存）：
-//   · 版本清单  → no-store，且**只走雨云/GitHub raw**，绝不走 jsDelivr
+//   · 版本清单  → no-store，且**只走 raw**，绝不走 jsDelivr
 //   · 静态资源  → CF 边缘缓存 30 天
-//   · HTML 等   → 不缓存（37KB 而已，不值得为它牺牲发版时效）
+//   · HTML 等   → 不缓存（50KB 而已，不值得为它牺牲发版时效）
 //
 // ⚠️ 为什么清单类不能走 jsDelivr：jsDelivr 对 GitHub 内容有自己的 CDN 缓存，
-//    会把旧清单喂给用户 —— 表现为「App 里检查更新一直提示已是最新」，
-//    而这个失败方向恰好是最坑的（用户永远收不到新版）。必须走权威源 + no-store。
+//    会把旧清单喂给用户 —— 表现为「官网显示旧版本」，更糟的是用户点下载
+//    拿到的是已经被清理的旧包。必须走权威源 + no-store。
 
-const CN  = "https://cn-nb2.rains3.com/dump/wuling-site";
+const CN  = "https://raw.githubusercontent.com/daiyuxiang520/wuling-site/main";
 const OV  = "https://cdn.jsdelivr.net/gh/daiyuxiang520/wuling-site@main";
 const OS2 = "https://raw.githubusercontent.com/daiyuxiang520/wuling-site/main";
 
