@@ -53,11 +53,54 @@ const extOf = (p) => p.split("?")[0].split("/").pop().split(".").pop().toLowerCa
 const isNoCache = (p) => NO_CACHE.some((re) => re.test(p));
 const isStatic = (p) => ["png", "jpg", "jpeg", "gif", "svg", "webp", "ico", "woff2"].includes(extOf(p));
 
+/**
+ * 修正上游响应。
+ *
+ * ## 2026-11-06 重大修复：上游 CSP 必须剥掉
+ *
+ * 换到 GitHub raw 之后，raw 对文件响应会带：
+ *     content-security-policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+ *     x-frame-options: deny
+ * 这是 GitHub 防止 raw 文件被当成网页执行的保护。但**我们就是拿它当网页**，
+ * 原样透传的后果是灾难性的：
+ *   · `default-src 'none'` → 所有图片被拦（img-src 回落到 default-src）
+ *   · `sandbox` → 页面进入沙箱，**全部脚本被阻止执行**
+ * 表现为：页面只剩内联 CSS 的排版，图片全是裂图，`<noscript>` 那段
+ * 「下载地址需启用 JavaScript」直接露在最顶部。
+ *
+ * 页面自己有一份正确的 `<meta http-equiv="Content-Security-Policy">`，
+ * 剥掉响应头后由它接管即可。
+ *
+ * ## 同时清掉 Fastly 的缓存/路由头
+ *
+ * `x-cache` / `via` / `source-age` / `age` / `expires` 是 GitHub 前置 CDN 的，
+ * 透传会让 Cloudflare 的缓存判断和调试信息混淆（比如浏览器看到 `expires`
+ * 早于 `cache-control` 时会按更保守的那个来）。
+ */
+const STRIP_HEADERS = [
+  // GitHub raw 的安全头 —— 会直接打死页面
+  "content-security-policy",
+  "content-security-policy-report-only",
+  "x-frame-options",
+  "cross-origin-resource-policy",
+  "cross-origin-opener-policy",
+  "cross-origin-embedder-policy",
+  // 上游 CDN 的缓存/来源信息
+  "x-cache", "x-cache-hits", "x-served-by", "x-timer", "via", "source-age",
+  "age", "expires",
+  // 传输层：body 由 Worker 重新包装，这些头会和实际内容不符
+  "content-length", "content-encoding", "transfer-encoding",
+  "content-disposition",
+];
+
 function fix(r, p) {
   const h = new Headers(r.headers);
-  h.delete("content-disposition"); // 去掉 S3 的强制下载头
+  for (const k of STRIP_HEADERS) h.delete(k);
   const e = extOf(p);
   if (MIME[e]) h.set("content-type", MIME[e]);
+  // 上游允许任意来源读（GitHub 的 CORS 策略），我们只服务自己的域名，
+  // 没必要把这条也带出去
+  h.delete("access-control-allow-origin");
   return new Response(r.body, { status: r.status, headers: h });
 }
 
