@@ -1,8 +1,8 @@
 {
-  "versionCode": 203,
-  "versionName": "4.23.0",
-  "updateLog": "主题设置新增「星光蓝」预设配色，一键切换整车界面风格。\n\n首页、「我的」页、设置页重新排版，充电状态独立成条，快捷控制按钮收进一张卡片。\n\n「获取蓝牙钥匙」现在会显示真实状态：缺权限时会提示并可一键授权，已获取则显示钥匙标识。\n\n修复长按桌面图标里的「锁车 / 关窗 / 寻车」点了没反应。\n\n修复桌面小组件点开可能跳到崩溃日志页的问题。\n\n【校验信息】\n- versionCode: 203 / versionName: 4.23.0\n- MD5: ce97a3a236f7b29b3ce79417a811ab3a\n- SHA-256: 028cf5faf99cedde950c6a0b8fc10fe8c6b18adf2597424a1ad2d15df5cbd16e\n- 签名证书 SHA-256: 7b9f49df9bd31e131ac5f0cdfa0c65651f8e17eee75d3ed65cd2fe5b137d5e37\n- 签名证书与历史版本一致（CN=Wuling）",
-  "apkUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v203/wuling-assistant-v203.apk",
+  "versionCode": 291,
+  "versionName": "4.74.10",
+  "updateLog": "桌面新增 1×1 车控方块：锁车、解锁、启动各一个，放桌面上点一下就行（解锁和启动会先弹确认框）。\n\n「外观与布局」里现在可以自己决定首页显示哪些卡片、详情页显示哪些字段，分组默认收起，点开再调。\n\n首页续航下面新增一行「近期开法」：按最近两周的实际电耗估算还能跑多远，混动车也能看。\n\n「我的」和「设置」页的图标现在全部跟着主题色走 —— 之前只有两个会随皮肤变色，其余一直是灰的。\n\n修了一个会让 App 直接消失的崩溃：从桌面小组件或快捷方式冷启动、正好赶上后台刷新失败时触发。\n\nMD5: a51ba59bb93b2a2de3a23bd094f4aba7",
+  "apkUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v291/wuling-assistant-v291.apk",
   "forceUpdate": false,
-  "md5": "ce97a3a236f7b29b3ce79417a811ab3a"
+  "md5": "a51ba59bb93b2a2de3a23bd094f4aba7"
 }
