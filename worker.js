@@ -49,6 +49,21 @@ const NO_CACHE = [/^\/update.*\.json$/i, /^\/manifest.*\.json$/i];
 // 可缓存的静态资源后缀。注意 html 不在其中 —— 首页要保证发版即时生效。
 const STATIC_TTL = 2592000; // 30 天
 
+/**
+ * HTML 的边缘缓存时长（秒）。
+ *
+ * 原来 HTML 是**完全不缓存**（max-age=0 且子请求没开 cacheEverything），
+ * 理由是「保证发版即时生效」。代价是每个访客的首屏都要回源 GitHub raw
+ * （源站在海外），实测 TTFB 1~3 秒、整页 1.7s。
+ *
+ * 60 秒是取舍点：发版本来就是分钟级人工操作，晚 1 分钟生效没有实际影响；
+ * 换来的是 60 秒内所有访客直接命中 Cloudflare 边缘缓存（TTFB 降到几十毫秒）。
+ *
+ * 注意这是**子请求**的缓存（cf.cacheTtl），不是给浏览器看的 ——
+ * 浏览器端仍用 max-age=0 + must-revalidate，按 F5 必定拿到最新的。
+ */
+const HTML_TTL = 60;
+
 const extOf = (p) => p.split("?")[0].split("/").pop().split(".").pop().toLowerCase();
 const isNoCache = (p) => NO_CACHE.some((re) => re.test(p));
 const isStatic = (p) => ["png", "jpg", "jpeg", "gif", "svg", "webp", "ico", "woff2"].includes(extOf(p));
@@ -140,16 +155,22 @@ export default {
       return out;
     }
 
-    // ---- ③ HTML / 其他：不缓存，保证发版即时生效 ----
+    // ---- ③ HTML / 其他：边缘缓存 60 秒 ----
+    // 详见 [HTML_TTL]。子请求开 cacheEverything 才会让上游响应进 CF 缓存，
+    // 否则 Worker 每次都要重新打 GitHub raw。
     let r;
     try {
-      r = await fetch((isCN ? CN : OV) + p, o);
-      if (!r.ok) r = await fetch(OS2 + p, o);
+      r = await fetch((isCN ? CN : OV) + p, { ...o, cf: { cacheTtl: HTML_TTL, cacheEverything: true } });
+      // 兜底源同样带上缓存参数：否则 fallback 那一路仍是每次都穿透
+      if (!r.ok) {
+        r = await fetch(OS2 + p, { ...o, cf: { cacheTtl: HTML_TTL, cacheEverything: true } });
+      }
     } catch (e) {
       r = await fetch(OS2 + p, o);
     }
     const out = fix(r, p);
-    out.headers.set("cache-control", "public, max-age=0, must-revalidate");
+    // s-maxage 给下游 CDN；max-age=0 保证浏览器按 F5 必定重新验证
+    out.headers.set("cache-control", "public, max-age=0, s-maxage=" + HTML_TTL + ", must-revalidate");
     return out;
   },
 };
