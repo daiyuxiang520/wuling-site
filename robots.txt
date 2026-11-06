@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /skin-api.html
 
 Sitemap: https://wulingchekong.ccwu.cc/sitemap.xml
