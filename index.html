@@ -9,6 +9,7 @@
 <meta name="keywords" content="五菱,五菱车控,远程控制,充电管理,能耗统计,位置找车,无感控车,安卓,APK">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#05070d">
+<meta name="color-scheme" content="dark light">
 <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="manifest" href="manifest.json">
@@ -135,6 +136,8 @@
 
   :root{
     /* 夜航（默认深色） */
+    /* 原生控件（滚动条/下拉/输入框）跟随深色，避免暗色页面上出现白滚动条 */
+    color-scheme:dark;
     --bg:#05070d;
     --bg-2:#0a0f1a;
     --surface:rgba(255,255,255,.035);
@@ -158,6 +161,7 @@
   }
 
   [data-theme="light"]{
+    color-scheme:light;
     --bg:#f7f9fc;
     --bg-2:#eef3f9;
     --surface:rgba(255,255,255,.9);
@@ -179,6 +183,7 @@
   }
 
   [data-theme="glass"]{
+    color-scheme:light;
     --bg:#eef1f8;
     --bg-2:#e7ecf6;
     --surface:rgba(255,255,255,.55);
@@ -821,11 +826,16 @@
 
   /* ---------- 主题 ---------- */
   var META = {dark:'#05070d', light:'#f7f9fc', glass:'#eef1f8'};
+  // 雾面玻璃是浅色系，color-scheme 跟随它而不是固定 dark
+  var CS = {dark:'dark', light:'light', glass:'light'};
   var meta = document.querySelector('meta[name="theme-color"]');
+  var csMeta = document.querySelector('meta[name="color-scheme"]');
   function applyTheme(t){
     document.documentElement.setAttribute('data-theme', t);
     try{ localStorage.setItem('wlck_theme', t); }catch(e){}
     if (meta) meta.setAttribute('content', META[t] || '#05070d');
+    // 同步 color-scheme：滚动条、下拉框、自动填充等原生 UI 随主题切换
+    if (csMeta) csMeta.setAttribute('content', CS[t] || 'dark');
     document.querySelectorAll('.tbtn').forEach(function(b){
       var on = b.getAttribute('data-t') === t;
       b.classList.toggle('on', on);
