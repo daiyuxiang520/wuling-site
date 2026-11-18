@@ -1,8 +1,8 @@
 {
-  "versionCode": 310,
-  "versionName": "4.74.29",
-  "updateLog": "新增「Ling 值签到」：打开 App 自动完成当日签到，显示连续天数与今日金币。\n新增空调 1×1 桌面方块：显示设定温度，点一下直接开启。\n\n空调面板重做：先设温度再执行，显示车内实际开关状态，换皮肤后配色同步，记住上次温度。\n无感控车修复：两个超时设置真正生效，连接卡住会自动重试，钥匙过期会提示。\n\n续航预估的样本天数可在 3~30 天之间调整；位置页地图加载更快；意见反馈界面重做。",
-  "apkUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v310/wuling-assistant-v310.apk",
+  "versionCode": 324,
+  "versionName": "4.74.43",
+  "updateLog": "桌面「车辆状态」小组件新增预估续航与百公里电耗，电量条改为绿色、油量条改为黄色。\n\n「API Token」新增复制按钮，换机或排查问题不用重新登录。\n\n默认主题改为星光蓝；灵动岛设置移入「通知与权限」。Ling 值签到新增自动签到开关；绑定 NFC 时若贴上门禁卡、公交卡等不支持的卡，会明确提示原因。\n\n「意见反馈」可查看处理进度与开发者回复，有新回复会标出未读提醒。\n\n修复部分车型（如宝骏云海）充电时功率一直显示 0.0kW 的问题。",
+  "apkUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v324/wuling-assistant-v324.apk",
   "forceUpdate": false,
-  "md5": "dd94037b00123a4bc0d4361fb48d393b"
+  "md5": "5e86365cceb2714b2abda56816c5f769"
 }
