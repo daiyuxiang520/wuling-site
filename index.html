@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://*.51.la; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://*.51.la https://static.cloudflareinsights.com; connect-src 'self' https://*.51.la https://cloudflareinsights.com; font-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://*.51.la; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://*.51.la https://static.cloudflareinsights.com; connect-src 'self' https://gitee.com https://*.51.la https://cloudflareinsights.com; font-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <title>五菱车控 · 车辆远程助手</title>
 <meta name="description" content="五菱车控提供车辆状态查看、远程控制、充电管理、能耗统计、位置找车、无感控车，一款为爱车打造的第三方安卓客户端。免费使用，无广告，数据仅存本机。">
 <meta name="keywords" content="五菱,五菱车控,远程控制,充电管理,能耗统计,位置找车,无感控车,安卓,APK">
@@ -41,9 +41,9 @@
   "alternateName": "Wuling Remote",
   "operatingSystem": "Android",
   "applicationCategory": "UtilitiesApplication",
-  "softwareVersion": "4.74.29",
-  "downloadUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v310/wuling-assistant-v310.apk",
-  "installUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v310/wuling-assistant-v310.apk",
+  "softwareVersion": "4.74.43",
+  "downloadUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v324/wuling-assistant-v324.apk",
+  "installUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v324/wuling-assistant-v324.apk",
   "url": "https://wulingchekong.ccwu.cc/",
   "description": "车辆状态查看、远程控制、充电管理、能耗统计、位置找车、无感控车，一款为爱车打造的第三方安卓客户端。免费使用，无广告，数据仅存本机。",
   "isAccessibleForFree": true,
@@ -444,6 +444,11 @@
   .hnote{margin-top:16px;font-size:13.2px;color:var(--muted);line-height:1.7}
   .hnote a{color:var(--accent);text-decoration:none}
   .hnote a:hover{text-decoration:underline}
+  /* 窄屏：描述独占一行，否则会被「下载」挤成十几字一行的窄条 */
+  @media (max-width:560px){
+    .hi .hd{flex:1 1 100%;min-width:0}
+    .hi .ha{margin-left:auto}
+  }
 
   /* ---------------- 页脚 ---------------- */
   footer{background:var(--bg-2);border-top:1px solid var(--line);padding:52px 0 36px;font-size:13.2px}
@@ -575,11 +580,11 @@
 <div class="hero">
   <div class="wrap">
     <div class="hcopy">
-      <div class="pill"><span class="dot"></span><span id="verText">最新版本 v310 · 4.74.29</span></div>
+      <div class="pill"><span class="dot"></span><span id="verText">最新版本 v324 · 4.74.43</span></div>
       <h1>把整台车<br>装进<em>手机</em>里</h1>
       <p class="sub">车辆状态、远程控制、充电管理、能耗统计、位置找车、无感控车。免费使用，无广告，数据仅存本机。</p>
       <div class="actions">
-        <a class="btn btn-a" id="mainDl" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v310/wuling-assistant-v310.apk">
+        <a class="btn btn-a" id="mainDl" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v324/wuling-assistant-v324.apk">
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg>
           <span>立即下载<small id="dlSize">APK · 安卓 · 6.9 MB</small></span>
         </a>
@@ -670,7 +675,7 @@
       <p>App 内置签名校验，非官方渠道的安装包一律无法安装</p>
     </div>
     <div class="dl">
-      <a class="d d-wide reveal" id="dlGitee" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v310/wuling-assistant-v310.apk">
+      <a class="d d-wide reveal" id="dlGitee" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v324/wuling-assistant-v324.apk">
         <div class="row">
           <div class="txt">
             <span class="dt">推荐 · 直连最快</span>
@@ -687,7 +692,7 @@
         <code class="fp">7b9f49df 9bd31e13 1ac5f0cd fa0c6565<br>1f8e17ee e75d3ed6 5cd2fe5b 137d5e37</code>
       </div>
     </div>
-    <div class="meta reveal">当前版本 <b id="dlVer">v310 · 4.74.29</b> · 安装包约 6.9 MB · 安装包 MD5 <code id="dlMd5">dd94037b…8d393b</code></div>
+    <div class="meta reveal">当前版本 <b id="dlVer">v324 · 4.74.43</b> · 安装包约 6.9 MB · 安装包 MD5 <code id="dlMd5">5e86365c…c5f769</code></div>
   </div>
 </section>
 
@@ -729,7 +734,7 @@
       <p>每次发版都会同步到这里</p>
     </div>
     <div class="log reveal">
-      <div class="lh"><h3>更新日志</h3><span class="v" id="logVer">v310 · 4.74.29</span></div>
+      <div class="lh"><h3>更新日志</h3><span class="v" id="logVer">v324 · 4.74.43</span></div>
       <pre id="logBody" role="status" aria-live="polite">正在获取最新更新说明…</pre>
     </div>
     <p class="logmore reveal">需要回退或对照旧版？文末附有<a href="#history">更早的版本列表</a>。</p>
@@ -740,52 +745,82 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="tag">归档</span>
-      <h2>更早的版本</h2>
-      <p>v234 及以前的正式版与测试版，全部由同一证书签名，可直接覆盖升级、无需卸载。v235 之后的更新见上方「最近更新了什么」。</p>
+      <h2>历史版本</h2>
+      <p>近期仍保留安装包的版本都在下面，全部由同一证书签名，可直接覆盖升级、无需卸载。列表按发布时间自动更新；未列出的版本当时未归档安装包。</p>
     </div>
-    <div class="hlist">
-      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v234/wuling-assistant-v234.apk">
-        <span class="hv">v234<small>4.49.0</small></span><span class="hc hc-s">正式</span>
-        <span class="hd">整合 v228~v233 六项更新：充电状态更准确、位置页更好用、车标人标更清晰、2D/3D 按钮更形象</span>
+    <div class="hlist" id="hlist">
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v324/wuling-assistant-v324.apk">
+        <span class="hv">v324<small>4.74.43</small></span><span class="hc hc-s">正式</span>
+        <span class="hd">小组件显示预估续航与电耗；Token 可复制；默认主题星光蓝；反馈可查进度；修复充电功率显示 0.0kW</span>
         <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
       </a>
-      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v233/wuling-assistant-v233-beta.apk">
-        <span class="hv">v233<small>4.48.4</small></span><span class="hc">测试</span>
-        <span class="hd">修复 View2d「平面」图标渲染成「||」</span>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v323/wuling-assistant-v323-beta.apk">
+        <span class="hv">v323<small>4.74.42</small></span><span class="hc">测试</span>
+        <span class="hd">意见反馈支持查看处理进度与开发者回复，有新回复标出未读提醒</span>
         <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
       </a>
-      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v232/wuling-assistant-v232-beta.apk">
-        <span class="hv">v232<small>4.48.3</small></span><span class="hc">测试</span>
-        <span class="hd">热修 2D/3D 切不回 3D（WebGL 重探 + 失败回滚）</span>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v316/wuling-assistant-v316-beta.apk">
+        <span class="hv">v316<small>4.74.35</small></span><span class="hc">测试</span>
+        <span class="hd">小组件进度条色值对齐首页；Token 复制；预估续航与电耗</span>
         <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
       </a>
-      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v231/wuling-assistant-v231-beta.apk">
-        <span class="hv">v231<small>4.48.2</small></span><span class="hc">测试</span>
-        <span class="hd">地图工具钮重设计：2D/3D 图标即所即所见、人车同屏矩形双点</span>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v310/wuling-assistant-v310.apk">
+        <span class="hv">v310<small>4.74.29</small></span><span class="hc hc-s">正式</span>
+        <span class="hd">新增 Ling 值签到；反馈改为直连通道，不再受每月条数限制</span>
         <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
       </a>
-      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v230/wuling-assistant-v230-beta.apk">
-        <span class="hv">v230<small>4.48.1</small></span><span class="hc">测试</span>
-        <span class="hd">车标人标图标精修：人标蓝心白边、车标侧视车形、寻车脉冲提示</span>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v308/wuling-assistant-v308-beta.apk">
+        <span class="hv">v308<small>4.74.27</small></span><span class="hc">测试</span>
+        <span class="hd">1×1 空调桌面方块；意见反馈页重构；续航预估样本不足时不再整卡消失</span>
         <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
       </a>
-      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v229/wuling-assistant-v229-beta.apk">
-        <span class="hv">v229<small>4.48.0</small></span><span class="hc">测试</span>
-        <span class="hd">位置页视觉收口：控件语言统一、距离信息重排、「回到车辆」智能化</span>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v304/wuling-assistant-v304-beta.apk">
+        <span class="hv">v304<small>4.74.23</small></span><span class="hc">测试</span>
+        <span class="hd">更新与公告改为 Gitee 单源，检查更新更快</span>
         <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
       </a>
-      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v228/wuling-assistant-v228-beta.apk">
-        <span class="hv">v228<small>4.47.0</small></span><span class="hc">测试</span>
-        <span class="hd">插枪充电状态不再误显「充电中」——只有真正在充电才显示</span>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v303/wuling-assistant-v303-beta.apk">
+        <span class="hv">v303<small>4.74.22</small></span><span class="hc">测试</span>
+        <span class="hd">续航预估样本天数支持 7~30 天任意调节（滑杆）</span>
         <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
       </a>
-      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v227/wuling-assistant-v227.apk">
-        <span class="hv">v227<small>4.46.0</small></span><span class="hc hc-s">正式</span>
-        <span class="hd">车标改水滴图钉，滑动地图不再闪烁</span>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v291/wuling-assistant-v291.apk">
+        <span class="hv">v291<small>4.74.10</small></span><span class="hc hc-s">正式</span>
+        <span class="hd">1×1 车控桌面方块（锁车/解锁/启动）；图标跟随主题色</span>
+        <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
+      </a>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v278/wuling-assistant-v278.apk">
+        <span class="hv">v278<small>4.73.9</small></span><span class="hc hc-s">正式</span>
+        <span class="hd">「我的」页图标全部跟随主题色</span>
+        <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
+      </a>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v277/wuling-assistant-v277.apk">
+        <span class="hv">v277<small>4.73.8</small></span><span class="hc hc-s">正式</span>
+        <span class="hd">首页与详情页区块可拖动排序、单独开关</span>
+        <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
+      </a>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v269/wuling-assistant-v269.apk">
+        <span class="hv">v269<small>4.73.0</small></span><span class="hc hc-s">正式</span>
+        <span class="hd">能耗页新增续航预估，按最近实际电耗估算</span>
+        <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
+      </a>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v268/wuling-assistant-v268-beta.apk">
+        <span class="hv">v268<small>4.72.0</small></span><span class="hc">测试</span>
+        <span class="hd">「创意工坊」更名为「外观与布局」，皮肤与布局两段合并重整</span>
+        <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
+      </a>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v256/wuling-assistant-v256.apk">
+        <span class="hv">v256<small>4.67.0</small></span><span class="hc hc-s">正式</span>
+        <span class="hd">详情页可自定义排序与三档密度</span>
+        <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
+      </a>
+      <a class="hi reveal" rel="noopener" href="https://gitee.com/daiyuxiang520/geren-update/releases/download/v248/wuling-assistant-v248.apk">
+        <span class="hv">v248<small>4.63.0</small></span><span class="hc hc-s">正式</span>
+        <span class="hd">灵动岛改用当前车辆真实照片；首页界面层次重做</span>
         <span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>
       </a>
     </div>
-    <p class="hnote reveal">v226 及以前请前往 <a href="https://gitee.com/daiyuxiang520/geren-update/releases" rel="noopener">Gitee Releases 列表</a> 按需获取。测试版可能包含未稳定功能，建议普通用户使用最新正式版。</p>
+    <p class="hnote reveal">更早的版本请前往 <a href="https://gitee.com/daiyuxiang520/geren-update/releases" rel="noopener">Gitee Releases 列表</a> 按需获取。测试版可能包含未稳定功能，建议普通用户使用最新正式版。</p>
   </div>
 </section>
 
@@ -895,6 +930,82 @@
     .catch(function(){
       document.getElementById('logBody').textContent = '更新说明获取失败，请稍后刷新重试，或前往「下载」区直接获取最新安装包。';
     });
+
+  /* ---------- 历史版本（按 Gitee Release 实时刷新，静态列表兜底） ----------
+     静态列表只覆盖到写页面时的版本，发几次版就会过时。
+     这里直接读仓库的 Release 列表：只渲染「真的有 apk 附件」的版本，
+     所以不会出现点进去 404 的死链；接口失败/限流时保留静态列表。 */
+  (function(){
+    var box = document.getElementById('hlist');
+    if (!box) return;
+    var KEY = 'wlck_rel_cache_v2', TTL = 30 * 60 * 1000;
+    var APK_BASE = 'https://gitee.com/daiyuxiang520/geren-update/releases/download/';
+
+    function esc(s){
+      return String(s || '').replace(/[&<>"']/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+      });
+    }
+    function firstPara(body){
+      var t = String(body || '').replace(/\r/g, '').split(/\n\s*\n/)[0] || '';
+      t = t.replace(/^v\d+（[\d.]+）[：:]?\s*/, '')
+           .replace(/^[-–•]\s+/gm, '')
+           .replace(/[#*`>]/g, '')
+           .replace(/\s+/g, ' ')
+           .trim();
+      return t.length > 64 ? t.slice(0, 64) + '…' : t;
+    }
+    function render(list){
+      box.innerHTML = list.slice(0, 16).map(function(it){
+        return '<a class="hi" rel="noopener" href="' + esc(it.url) + '">'
+          + '<span class="hv">' + esc(it.tag) + '<small>' + esc(it.vn) + '</small></span>'
+          + '<span class="' + (it.stable ? 'hc hc-s' : 'hc') + '">' + (it.stable ? '正式' : '测试') + '</span>'
+          + '<span class="hd">' + esc(it.desc) + '</span>'
+          + '<span class="ha">下载<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 20h16"/></svg></span>'
+          + '</a>';
+      }).join('');
+    }
+    function parse(data){
+      var out = [];
+      (data || []).forEach(function(r){
+        var apks = (r.assets || []).map(function(a){ return a.name; })
+          .filter(function(n){ return /\.apk$/i.test(n); });
+        if (!apks.length) return;
+        var m = /^v(\d+)$/.exec(r.tag_name || '');
+        if (!m) return;
+        var stableApk = apks.filter(function(n){ return !/-beta\.apk$/i.test(n); })[0];
+        var apk = stableApk || apks.filter(function(n){ return /-beta\.apk$/i.test(n); })[0];
+        if (!apk) return;
+        out.push({
+          vc: parseInt(m[1], 10),
+          tag: r.tag_name,
+          vn: (/\(([\d.]+)\)/.exec(r.name || '') || [])[1] || '',
+          stable: !!stableApk,
+          desc: firstPara(r.body) || '（无更新说明）',
+          url: APK_BASE + encodeURIComponent(r.tag_name) + '/' + encodeURIComponent(apk)
+        });
+      });
+      out.sort(function(a, b){ return b.vc - a.vc; });
+      return out;
+    }
+    function load(){
+      try{
+        var c = JSON.parse(localStorage.getItem(KEY) || 'null');
+        if (c && c.t && Date.now() - c.t < TTL && c.d && c.d.length){ render(c.d); return; }
+      }catch(e){}
+      fetch('https://gitee.com/api/v5/repos/daiyuxiang520/geren-update/releases?page=1&per_page=50&direction=desc', {cache:'no-store'})
+        .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+        .then(function(data){
+          var list = parse(data);
+          if (!list.length) return;
+          render(list);
+          try{ localStorage.setItem(KEY, JSON.stringify({t: Date.now(), d: list})); }catch(e){}
+        })
+        .catch(function(){ /* 保留静态兜底列表 */ });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', load);
+    else load();
+  })();
 </script>
 </body>
 </html>
