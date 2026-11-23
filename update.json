@@ -1,8 +1,8 @@
 {
-  "versionCode": 324,
-  "versionName": "4.74.43",
-  "updateLog": "桌面「车辆状态」小组件新增预估续航与百公里电耗，电量条改为绿色、油量条改为黄色。\n\n「API Token」新增复制按钮，换机或排查问题不用重新登录。\n\n默认主题改为星光蓝；灵动岛设置移入「通知与权限」。Ling 值签到新增自动签到开关；绑定 NFC 时若贴上门禁卡、公交卡等不支持的卡，会明确提示原因。\n\n「意见反馈」可查看处理进度与开发者回复，有新回复会标出未读提醒。\n\n修复部分车型（如宝骏云海）充电时功率一直显示 0.0kW 的问题。",
-  "apkUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v324/wuling-assistant-v324.apk",
+  "versionCode": 335,
+  "versionName": "4.74.54",
+  "updateLog": "预约充电修好了：现在能正常设置，可以选日期和开始时刻，设置后能直接看到当前预约（之前一直提示操作失败）。有预约时首页的「预约」按钮会变成蓝色并显示「已预约」。\n\n时间选择器改成上下滑动的滚轮，一次就能选完。\n\n另外修了两处：极简黑白主题下部分按钮和标签文字看不清；打开 App 时更新日志弹窗一闪而过。",
+  "apkUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v335/wuling-assistant-v335.apk",
   "forceUpdate": false,
-  "md5": "5e86365cceb2714b2abda56816c5f769"
+  "md5": "3df1a1f2623313f0281c66b54d92c880"
 }
