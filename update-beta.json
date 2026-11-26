@@ -1,8 +1,8 @@
 {
-  "versionCode": 304,
-  "versionName": "4.74.23",
-  "updateLog": "修复「检查更新」和「公告」偶尔变慢的问题：移除了一个已失效的服务器，现在直接走 Gitee，不再先等一次失败请求。\n\n下载源同步简化为 Gitee 单一来源。",
-  "apkUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v304/wuling-assistant-v304-beta.apk",
+  "versionCode": 336,
+  "versionName": "4.74.55",
+  "updateLog": "修复部分车型进 App 后看不到车辆信息的问题（提示 NumberFormatException: empty String）。服务端某个数值字段为空时，不再影响整份车况数据。",
+  "apkUrl": "https://gitee.com/daiyuxiang520/geren-update/releases/download/v336/wuling-assistant-v336-beta.apk",
   "forceUpdate": false,
-  "md5": "6149e169503e7819ededfe8e1760305f"
+  "md5": "43ff732d2bfb8552ed515e6cd671398e"
 }
